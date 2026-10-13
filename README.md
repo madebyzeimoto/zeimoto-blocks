@@ -38,7 +38,7 @@ development and production builds use the included Panel assets.
 
 Uploaded gallery and image-block files are rendered by `zeimoto-image`.
 The quote block's text field uses the inline rich-text field from `zeimoto-writer`.
-Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at `^0.0.1`.
+Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at `^0.1`.
 For manual installation, install and enable `zeimoto-image` and `zeimoto-writer`
 alongside this plugin. Uploaded-image rendering reports a clear error if its
 image helpers are absent.
