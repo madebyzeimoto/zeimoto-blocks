@@ -1,0 +1,55 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Image
+# ==========================================================
+
+name: field.blocks.image.name
+icon: image
+preview: image
+fields:
+  location:
+    type: radio
+    label: field.blocks.image.location
+    columns: 2
+    default: "kirby"
+    required: true
+    options:
+      kirby: "{{ t('field.blocks.image.location.internal') }}"
+      web: "{{ t('field.blocks.image.location.external') }}"
+  image:
+    type: files
+    label: field.blocks.image.name
+    query: model.images
+    multiple: false
+    image:
+      back: black
+    uploads:
+      template: blocks/image
+    when:
+      location: kirby
+  src:
+    type: url
+    label: field.blocks.image.url
+    when:
+      location: web
+  alt:
+    type: text
+    label: field.blocks.image.alt
+    icon: title
+  caption:
+    type: writer
+    label: field.blocks.image.caption
+    icon: text
+    inline: true
+  link:
+    type: text
+    label: field.blocks.image.link
+    icon: url
+  ratio:
+    extends: fields/zeimoto-blocks/ratio
+    width: 1/2
+  crop:
+    extends: fields/zeimoto-blocks/crop
+    width: 1/2
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6

@@ -1,0 +1,15 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: List
+# ==========================================================
+
+name: field.blocks.list.name
+icon: list-bullet
+preview: list
+wysiwyg: true
+fields:
+  text:
+    type: list
+    label: field.blocks.list.name
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6

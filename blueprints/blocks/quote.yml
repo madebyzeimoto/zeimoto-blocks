@@ -1,0 +1,49 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Quote
+# ==========================================================
+
+name: field.blocks.quote.name
+icon: quote
+preview: quote
+wysiwyg: true
+fields:
+  text:
+    type: zeimoto-writer
+    label: field.blocks.quote.text.label
+    placeholder: field.blocks.quote.text.placeholder
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
+  citation:
+    type: text
+    label: field.blocks.quote.citation.label
+    placeholder: field.blocks.quote.citation.placeholder
+    width: 3/6
+  role:
+    type: text
+    label: Role
+    placeholder: Role …
+    width: 3/6
+  source:
+    type: url
+    label: Source
+    placeholder: https://example.com
+    width: 3/6
+  isExternal:
+    type: toggle
+    label: Source type
+    text:
+      - "Internal Source"
+      - "External Source"
+    default: true
+    width: 3/6
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6

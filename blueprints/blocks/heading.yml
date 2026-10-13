@@ -1,0 +1,40 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Heading
+# ==========================================================
+
+name: field.blocks.heading.name
+icon: title
+preview: heading
+wysiwyg: true
+fields:
+  level:
+    type: toggles
+    label: field.blocks.heading.level
+    required: true
+    reset: false
+    default: "h2"
+    labels: false
+    options:
+      - value: h2
+        icon: h2
+        text: H2
+      - value: h3
+        icon: h3
+        text: H3
+      - value: h4
+        icon: h4
+        text: H4
+      - value: h5
+        icon: h5
+        text: H5
+      - value: h6
+        icon: h6
+        text: H6
+  text:
+    type: writer
+    label: field.blocks.heading.text
+    inline: true
+    placeholder: field.blocks.heading.placeholder
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6

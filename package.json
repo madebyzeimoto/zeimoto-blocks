@@ -1,0 +1,11 @@
+{
+  "name": "zeimoto-blocks",
+  "private": true,
+  "scripts": {
+    "build": "kirbyup src/index.js",
+    "dev": "kirbyup serve src/index.js"
+  },
+  "devDependencies": {
+    "kirbyup": "^3.4.0"
+  }
+}

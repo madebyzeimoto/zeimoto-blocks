@@ -1,0 +1,34 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Gallery
+# ==========================================================
+
+name: field.blocks.gallery.name
+icon: dashboard
+preview: gallery
+fields:
+  images:
+    type: files
+    label: field.blocks.gallery.images.label
+    query: model.images
+    multiple: true
+    layout: cards
+    size: small
+    empty: field.blocks.gallery.images.empty
+    uploads:
+      template: blocks/image
+    image:
+      ratio: 1/1
+  caption:
+    type: writer
+    label: field.blocks.image.caption
+    icon: text
+    inline: true
+  ratio:
+    extends: fields/zeimoto-blocks/ratio
+    width: 1/2
+  crop:
+    extends: fields/zeimoto-blocks/crop
+    width: 1/2
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6

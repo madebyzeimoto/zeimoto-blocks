@@ -1,0 +1,11 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Fields :: Width
+# ==========================================================
+
+type: select
+label: Width
+default: base
+options:
+  narrow: Narrow
+  base: Base
+  wide: Wide

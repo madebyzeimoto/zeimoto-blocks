@@ -1,0 +1,18 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Markdown
+# ==========================================================
+
+name: field.blocks.markdown.name
+icon: markdown
+preview: markdown
+wysiwyg: true
+fields:
+  text:
+    type: textarea
+    label: field.blocks.markdown.label
+    placeholder: field.blocks.markdown.placeholder
+    buttons: false
+    font: monospace
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6

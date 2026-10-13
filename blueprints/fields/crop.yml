@@ -1,0 +1,6 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Fields :: Crop
+# ==========================================================
+
+type: toggle
+label: field.blocks.image.crop
