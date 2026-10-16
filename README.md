@@ -37,6 +37,10 @@ development and production builds use the included Panel assets.
 ## Dependencies
 
 Uploaded gallery and image-block files are rendered by `zeimoto-image`.
+Image, gallery and video-poster uploads use the host’s `image` file blueprint.
+Local video uploads use its `audiovisual` blueprint. The host supplies both
+blueprints; video selection still queries `model.videos`, including existing
+videos with other templates.
 The quote block's text field uses the inline rich-text field from `zeimoto-writer`.
 Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at `^0.1`.
 For manual installation, install and enable `zeimoto-image` and `zeimoto-writer`

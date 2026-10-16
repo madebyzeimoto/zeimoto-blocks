@@ -25,6 +25,8 @@ fields:
     label: field.blocks.video.name
     query: model.videos
     multiple: false
+    uploads:
+      template: audiovisual
     when:
       location: kirby
   poster:
@@ -35,7 +37,7 @@ fields:
     image:
       back: black
     uploads:
-      template: blocks/image
+      template: image
     when:
       location: kirby
   caption:
