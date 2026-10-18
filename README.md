@@ -18,6 +18,12 @@ For manual installation, copy this plugin into `site/plugins/zeimoto-blocks`.
 See the integration requirements below before using its public surfaces.
 The plugin is distributed under the MIT license; see [LICENSE](LICENSE).
 
+## Compiler compatibility
+
+The Quote editor uses a render function, so the released Panel assets work with
+`panel.vue.compiler: false`. Rebuild with `npm run build` after editing its
+source; Composer installations use the included `index.js` and `index.css`.
+
 ## Panel development
 
 Kirby loads the included `index.js` and `index.css`; installing a release does

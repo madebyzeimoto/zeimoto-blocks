@@ -21,3 +21,9 @@ jobs:
           coverage: none
       - run: composer install --prefer-dist --no-interaction
       - run: composer test
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: npm ci
+      - run: npm run build
+      - run: node --test tests/*.test.mjs
