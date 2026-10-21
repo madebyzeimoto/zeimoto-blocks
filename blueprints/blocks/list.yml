@@ -8,7 +8,17 @@ preview: list
 wysiwyg: true
 fields:
   text:
-    type: list
+    type: zeimoto-blocks-list
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
     label: field.blocks.list.name
   width:
     extends: fields/zeimoto-blocks/width

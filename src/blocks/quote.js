@@ -18,7 +18,7 @@ export default {
     },
   },
   render(h) {
-    return h("div", { class: "k-block-type-quote-editor" }, [
+    return h("div", { class: ["k-block-type-quote-editor", { "zeimoto-blocks-quote-fixed": this.textField.toolbar?.inline === false }] }, [
       h("k-writer-input", {
         ref: "text",
         class: "k-block-type-quote-text",
@@ -27,6 +27,7 @@ export default {
           inline: this.textField.inline ?? false,
           marks: this.textField.marks,
           nodes: this.textField.nodes,
+          toolbar: this.textField.toolbar ?? { inline: true },
           placeholder: this.textField.placeholder,
           value: this.content.text,
         },

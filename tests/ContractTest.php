@@ -16,6 +16,40 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 final class ContractTest extends PluginTestCase
 {
+  public function testListToolbarSurvivesFieldsetSerialization(): void
+  {
+    $app = $this->app();
+    $fieldset = new \Kirby\Cms\Fieldset([
+      "type" => "list",
+      "fields" => ["text" => [
+        "type" => "zeimoto-blocks-list",
+        "marks" => ["bold", "italic", "link"],
+        "nodes" => ["bulletList", "orderedList"],
+        "toolbar" => ["inline" => false],
+      ]],
+    ]);
+    $field = $fieldset->fields()["text"];
+    self::assertSame(["inline" => false], $field["toolbar"]);
+    self::assertSame(["bold", "italic", "link"], $field["marks"]);
+    self::assertSame(["bulletList", "orderedList"], $field["nodes"]);
+    $default = new \Kirby\Form\Field("zeimoto-blocks-list", ["name" => "text", "model" => $app->site()]);
+    self::assertNull($default->toolbar());
+  }
+
+  public function testRichTextBlockBlueprintsDefaultToMatchingFixedToolbars(): void
+  {
+    $this->app();
+    foreach (["heading", "text", "list", "quote", "image", "gallery", "video"] as $type) {
+      $fieldset = new \Kirby\Cms\Fieldset([
+        ...\Kirby\Cms\Blueprint::extend("blocks/" . $type),
+        "type" => $type,
+      ]);
+      $field = $fieldset->fields()[in_array($type, ["image", "gallery", "video"], true) ? "caption" : "text"];
+      self::assertSame(["inline" => false], $field["toolbar"], $type);
+      self::assertSame(["bold", "italic", "strike", "|", "link", "|", "clear"], $field["marks"], $type);
+    }
+  }
+
   public function testCodeEscapesTextAndPreservesWhitespace(): void
   {
     $this->app();

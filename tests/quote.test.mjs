@@ -21,11 +21,12 @@ test("quote editor renders all fields and preserves input updates without compil
   const editor = {
     disabled: true,
     content: { text: "Quote", citation: "Author", role: "Designer", source: "https://example.test" },
-    textField: { placeholder: "Text", marks: ["bold"], nodes: ["paragraph"] },
+    textField: { placeholder: "Text", marks: ["bold"], nodes: ["paragraph"], toolbar: { inline: false } },
     citationField: { placeholder: "Author" }, roleField: { placeholder: "Role" }, sourceField: { placeholder: "URL" },
     update: (value) => updates.push(value),
   }
   const tree = quote.render.call(editor, h)
+  assert.equal(tree.data.class[1]["zeimoto-blocks-quote-fixed"], true)
   const inputs = [tree.children[0], ...tree.children[1].children]
   assert.equal(inputs.length, 4)
   for (const input of inputs) {
@@ -37,4 +38,13 @@ test("quote editor renders all fields and preserves input updates without compil
   }
   assert.equal(inputs[3].tag, "k-url-input")
   assert.equal(inputs[0].data.props.inline, false)
+  assert.equal(inputs[0].data.props.toolbar, editor.textField.toolbar)
+})
+
+
+test("quote retains the floating toolbar when configuration is omitted", () => {
+  const editor = { content: {}, textField: {}, citationField: {}, roleField: {}, sourceField: {} }
+  const tree = quote.render.call(editor, h)
+  assert.equal(tree.children[0].data.props.toolbar.inline, true)
+  assert.equal(tree.data.class[1]["zeimoto-blocks-quote-fixed"], false)
 })

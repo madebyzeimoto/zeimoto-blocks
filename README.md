@@ -53,6 +53,63 @@ For manual installation, install and enable `zeimoto-image` and `zeimoto-writer`
 alongside this plugin. Uploaded-image rendering reports a clear error if its
 image helpers are absent.
 
+## Rich-text block defaults
+
+Heading, text, list, quote, and image/gallery/video caption fields default to
+persistent toolbars with bold, italic, strikethrough, link, and clear formatting.
+Lists additionally retain their native bulleted/numbered list controls.
+
+The shared media caption preview places its toolbar across the top of the media
+block, with the caption text below the media. Kirby displays the caption preview
+when a caption has content; use the block settings to add an empty caption.
+The caption toolbar is always fixed in the preview. Plain-text attribution,
+URLs, code, and Markdown fields retain their existing editors.
+
+## Heading toolbar
+
+Heading blocks with `toolbar.inline: false` display an edge-to-edge toolbar,
+matching text and list blocks. Heading text retains its inset with space for
+the level selector beside it. Setting `toolbar.inline: true` retains Kirby's
+native floating layout.
+
+## Quote toolbar
+
+The quote preview forwards the text field's `toolbar` configuration to Kirby's
+Writer input. The bundled blueprint sets `toolbar.inline: false` for a persistent
+formatting toolbar. Set `toolbar.inline: true` to use a floating toolbar.
+The fixed toolbar spans the top edge of the block; the quote rule and attribution
+remain below it. Citation and role remain plain text; source remains a URL field.
+
+## List toolbar
+
+The list block uses the plugin-owned `zeimoto-blocks-list` field, extending
+Kirby's native List field with a `toolbar` option. The Panel preview forwards
+`marks`, `nodes`, and `toolbar` while preserving native list editing and stored HTML.
+
+```yaml
+list:
+  extends: blocks/list
+  fields:
+    text:
+      marks:
+        - bold
+        - italic
+        - strike
+        - "|"
+        - link
+        - "|"
+        - clear
+      nodes:
+        - bulletList
+        - orderedList
+      toolbar:
+        inline: false
+```
+
+This keeps formatting and the native list selector visible without selecting
+text. Set `toolbar.inline: true` to use Kirby's floating toolbar. Fixed list toolbars
+align with native text block toolbars. No content migration is required.
+
 ## Gallery and image rendering
 
 Block crop enabled with a valid ratio uses `zeimotoImageThumbnail()` for

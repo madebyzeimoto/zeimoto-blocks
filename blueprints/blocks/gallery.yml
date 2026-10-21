@@ -20,6 +20,16 @@ fields:
       ratio: 1/1
   caption:
     type: writer
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
     label: field.blocks.image.caption
     icon: text
     inline: true

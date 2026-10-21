@@ -42,6 +42,16 @@ fields:
       location: kirby
   caption:
     type: writer
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
     label: field.blocks.video.caption
     inline: true
   autoplay:

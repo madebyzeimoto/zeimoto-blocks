@@ -32,6 +32,16 @@ fields:
         text: H6
   text:
     type: writer
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
     label: field.blocks.heading.text
     inline: true
     placeholder: field.blocks.heading.placeholder

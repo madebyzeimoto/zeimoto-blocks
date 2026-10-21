@@ -37,6 +37,16 @@ fields:
     icon: title
   caption:
     type: writer
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
     label: field.blocks.image.caption
     icon: text
     inline: true

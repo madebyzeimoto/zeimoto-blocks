@@ -11,6 +11,16 @@
 declare(strict_types=1);
 
 Kirby::plugin("zeimoto/blocks", [
+  "fields" => [
+    "zeimoto-blocks-list" => [
+      "extends" => "list",
+      "props" => [
+        "toolbar" => function (array|null $toolbar = null): array|null {
+          return $toolbar;
+        },
+      ],
+    ],
+  ],
   "blueprints" => [
     "blocks/code" => __DIR__ . "/blueprints/blocks/code.yml",
     "blocks/gallery" => __DIR__ . "/blueprints/blocks/gallery.yml",

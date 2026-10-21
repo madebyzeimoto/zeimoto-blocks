@@ -9,6 +9,16 @@ wysiwyg: true
 fields:
   text:
     type: writer
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
     nodes: false
     placeholder: field.blocks.text.placeholder
   width:
