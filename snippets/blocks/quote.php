@@ -30,7 +30,7 @@ $width      = $block->width()->or("base")->value();
       <?php if ($citation->isNotEmpty() || $role->isNotEmpty() || $sourceUrl !== null): ?>
         <figcaption class="mds-blocks-quote-attribution">
           <?php if ($citation->isNotEmpty()): ?>
-            <span class="mds-blocks-quote-author" itemprop="author" itemscope itemtype="https://schema.org/Person">— <span class="mds-blocks-quote-citation" itemprop="name"><?= $citation->html() ?></span><?php if ($role->isNotEmpty()): ?><meta itemprop="jobTitle" content="<?= $role->html() ?>"><?php endif ?></span><?php if ($role->isNotEmpty() || $sourceUrl !== null): ?>, <?php endif ?>
+            <span class="mds-blocks-quote-author" itemprop="author" itemscope itemtype="https://schema.org/Person">— <span itemprop="name"><?= $citation->html() ?></span><?php if ($role->isNotEmpty()): ?><meta itemprop="jobTitle" content="<?= $role->html() ?>"><?php endif ?></span><?php if ($role->isNotEmpty() || $sourceUrl !== null): ?>, <?php endif ?>
           <?php endif ?>
           <?php if ($role->isNotEmpty()): ?>
             <span class="mds-blocks-quote-role"><?= $role->html() ?></span><?php if ($sourceUrl !== null): ?>, <?php endif ?>
