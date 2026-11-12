@@ -24,9 +24,7 @@ $width      = $block->width()->or("base")->value();
 <?php if ($text->isNotEmpty()): ?>
   <div id="<?= esc($block->id()) ?>" class="mds-blocks-quote" data-width="<?= esc($width) ?>">
     <figure class="mds-blocks-quote-group" itemscope itemtype="https://schema.org/Quotation">
-      <blockquote class="mds-blocks-quote-text" itemprop="text" <?php if ($sourceUrl !== null): ?>cite="<?= esc($sourceUrl) ?>"<?php endif ?>>
-        <?= $text->kirbytextinline() ?>
-      </blockquote>
+      <blockquote class="mds-blocks-quote-text" itemprop="text" <?php if ($sourceUrl !== null): ?>cite="<?= esc($sourceUrl) ?>"<?php endif ?>><?= $text->kirbytextinline() ?></blockquote>
       <?php if ($citation->isNotEmpty() || $role->isNotEmpty() || $sourceUrl !== null): ?>
         <figcaption class="mds-blocks-quote-attribution">
           <?php if ($citation->isNotEmpty()): ?>
