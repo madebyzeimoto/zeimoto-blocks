@@ -1,9 +1,9 @@
 <?php
 // ==========================================================
-// Tests :: Article Bootstrap
+// Tests :: Blocks Bootstrap
 // ==========================================================
 //
-// Verifies the documented article bootstrap contracts in isolation.
+// Verifies the documented blocks bootstrap contracts in isolation.
 //
 // ==========================================================
 

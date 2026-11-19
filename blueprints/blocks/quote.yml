@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Quote
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Quote
 # ==========================================================
 
 name: field.blocks.quote.name
@@ -45,5 +45,5 @@ fields:
     default: true
     width: 3/6
   width:
-    extends: fields/zeimoto-article/width
+    extends: fields/zeimoto-blocks/width
     width: 3/6

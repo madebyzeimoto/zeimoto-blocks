@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Image
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Image
 # ==========================================================
 
 name: field.blocks.image.name
@@ -55,11 +55,11 @@ fields:
     label: field.blocks.image.link
     icon: url
   ratio:
-    extends: fields/zeimoto-article/ratio
+    extends: fields/zeimoto-blocks/ratio
     width: 1/2
   crop:
-    extends: fields/zeimoto-article/crop
+    extends: fields/zeimoto-blocks/crop
     width: 1/2
   width:
-    extends: fields/zeimoto-article/width
+    extends: fields/zeimoto-blocks/width
     width: 3/6

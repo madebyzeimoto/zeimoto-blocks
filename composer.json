@@ -1,5 +1,5 @@
 {
-  "name": "zeimoto/article",
+  "name": "zeimoto/blocks",
   "description": "Custom Kirby blocks with Panel editors and public rendering snippets.",
   "type": "kirby-plugin",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "zeimoto/writer": "^0.1"
   },
   "extra": {
-    "installer-name": "zeimoto-article"
+    "installer-name": "zeimoto-blocks"
   },
   "require-dev": {
     "phpunit/phpunit": "^13"

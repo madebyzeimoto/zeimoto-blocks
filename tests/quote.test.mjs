@@ -26,7 +26,7 @@ test("quote editor renders all fields and preserves input updates without compil
     update: (value) => updates.push(value),
   }
   const tree = quote.render.call(editor, h)
-  assert.equal(tree.data.class[1]["zeimoto-article-quote-fixed"], true)
+  assert.equal(tree.data.class[1]["zeimoto-blocks-quote-fixed"], true)
   const inputs = [tree.children[0], ...tree.children[1].children]
   assert.equal(inputs.length, 4)
   for (const input of inputs) {
@@ -46,5 +46,5 @@ test("quote retains the floating toolbar when configuration is omitted", () => {
   const editor = { content: {}, textField: {}, citationField: {}, roleField: {}, sourceField: {} }
   const tree = quote.render.call(editor, h)
   assert.equal(tree.children[0].data.props.toolbar.inline, true)
-  assert.equal(tree.data.class[1]["zeimoto-article-quote-fixed"], false)
+  assert.equal(tree.data.class[1]["zeimoto-blocks-quote-fixed"], false)
 })

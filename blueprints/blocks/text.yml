@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Text
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Text
 # ==========================================================
 
 name: field.blocks.text.name
@@ -22,5 +22,5 @@ fields:
     nodes: false
     placeholder: field.blocks.text.placeholder
   width:
-    extends: fields/zeimoto-article/width
+    extends: fields/zeimoto-blocks/width
     width: 3/6

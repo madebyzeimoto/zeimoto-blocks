@@ -28,7 +28,7 @@ for (const inline of [false, true, undefined]) {
     }
     const tree = heading.render.call(editor, h)
     assert.equal(heading.extends, "k-block-type-heading")
-    assert.equal(tree.data.class[2]["zeimoto-article-heading-fixed"], inline === false)
+    assert.equal(tree.data.class[2]["zeimoto-blocks-heading-fixed"], inline === false)
     assert.equal(tree.data.attrs["data-level"], "h2")
     const [input, level] = tree.children
     assert.equal(input.data.ref, "input")

@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Article :: Kirbyup
+// Plugins :: zeimoto :: Blocks :: Kirbyup
 // ==========================================================
 //
 // Keeps the Panel development server on IPv4 loopback so the

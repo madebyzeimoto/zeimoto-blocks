@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Code
+// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Code
 // ==========================================================
 //
 // Renders escaped code while preserving its stored whitespace.
@@ -16,7 +16,7 @@ $width    = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($code->isNotEmpty()): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-article-code" data-width="<?= esc($width) ?>">
-    <pre class="mds-article-code-group"><code class="mds-article-code-text mds-article-language-<?= esc($language) ?>"><?= $code->html() ?></code></pre>
+  <div id="<?= esc($block->id()) ?>" class="mds-blocks-code" data-width="<?= esc($width) ?>">
+    <pre class="mds-blocks-code-group"><code class="mds-blocks-code-text mds-blocks-language-<?= esc($language) ?>"><?= $code->html() ?></code></pre>
   </div>
 <?php endif ?>

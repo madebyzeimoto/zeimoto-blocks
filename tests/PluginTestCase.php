@@ -1,15 +1,15 @@
 <?php
 // ==========================================================
-// Tests :: Article Fixture
+// Tests :: Blocks Fixture
 // ==========================================================
 //
-// Verifies the documented article fixture contracts in isolation.
+// Verifies the documented blocks fixture contracts in isolation.
 //
 // ==========================================================
 
 declare(strict_types=1);
 
-namespace Zeimoto\Article\Tests;
+namespace Zeimoto\Blocks\Tests;
 
 use Kirby\Cms\App;
 use PHPUnit\Framework\TestCase;

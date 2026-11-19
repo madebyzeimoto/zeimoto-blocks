@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Image
+// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Image
 // ==========================================================
 //
 // Renders uploaded or external images with links and captions.
@@ -30,11 +30,11 @@ if ($block->location()->value() === "web") {
 ?>
 
 <?php if ($src !== null): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-article-image" data-width="<?= esc($width) ?>">
-    <figure class="mds-article-image-group"<?= Html::attr(["data-ratio" => $ratio, "data-crop" => $crop], null, " ") ?>>
+  <div id="<?= esc($block->id()) ?>" class="mds-blocks-image" data-width="<?= esc($width) ?>">
+    <figure class="mds-blocks-image-group"<?= Html::attr(["data-ratio" => $ratio, "data-crop" => $crop], null, " ") ?>>
       <?php if (($linkUrl = $link->toUrl()) !== null): ?>
-        <a href="<?= esc($linkUrl) ?>" class="mds-article-image-link">
-          <?php snippet("zeimoto-article/image-render", [
+        <a href="<?= esc($linkUrl) ?>" class="mds-blocks-image-link">
+          <?php snippet("zeimoto-blocks/image-render", [
             "image" => $image,
             "src" => $src,
             "alt" => $alt->value(),
@@ -43,8 +43,8 @@ if ($block->location()->value() === "web") {
           ]); ?>
         </a>
       <?php else: ?>
-        <a href="<?= esc($src) ?>" class="mds-article-image-link mds-lightgallery-item" data-no-swup>
-          <?php snippet("zeimoto-article/image-render", [
+        <a href="<?= esc($src) ?>" class="mds-blocks-image-link mds-lightgallery-item" data-no-swup>
+          <?php snippet("zeimoto-blocks/image-render", [
             "image" => $image,
             "src" => $src,
             "alt" => $alt->value(),
@@ -54,7 +54,7 @@ if ($block->location()->value() === "web") {
         </a>
       <?php endif ?>
       <?php if ($caption->isNotEmpty()): ?>
-        <figcaption class="mds-article-image-caption">
+        <figcaption class="mds-blocks-image-caption">
           <?= $caption ?>
         </figcaption>
       <?php endif ?>

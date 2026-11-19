@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Article :: Frontend :: Image
+// Plugins :: zeimoto :: Blocks :: Frontend :: Image
 // ==========================================================
 //
 // Replaces unavailable external images and refreshes their lightbox groups.
@@ -22,7 +22,7 @@ export const initializeExternalImages = (onFailure) => {
       }
 
       const fallback = image.nextElementSibling
-      const link = image.closest(".mds-article-image-link")
+      const link = image.closest(".mds-blocks-image-link")
       const gallery = image.closest(".mds-lightgallery-group")
 
       image.remove()

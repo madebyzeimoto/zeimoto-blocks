@@ -1,33 +1,39 @@
-# zeimoto Article
+# zeimoto Blocks
 
-Article blocks — the prose body of a page (heading, text, list, image, gallery,
-video, quote, line, code, markdown) — with Panel blueprints and frontend snippets.
+The single home of zeimoto's Kirby block types: heading, text, list, image,
+gallery, video, quote, line, code, and markdown, each with its Panel blueprint,
+Panel preview where needed, and frontend snippet.
+
+## Where blocks are used
+
+This plugin defines block types only. It does not decide where they appear.
+Host blueprints choose the allowed blocks through a field's `fieldsets`; for
+example, the kit's article field allows the prose blocks, and a layout field
+can allow a different set. A block renders with the same snippet wherever it
+is used, because Kirby resolves block HTML by type (`blocks/{type}`), not by
+the field that holds it.
 
 ## Naming
 
-Everything this plugin owns is named `article`: the `zeimoto/article` package,
-the `zeimoto-article-*` Panel field and classes, the `fields/zeimoto-article/*`
-blueprints, the `zeimoto-article/*` snippets, and the `.mds-article-*` frontend
-classes. The host kit stores the content in an `article` field rendered by its
-`components/article` snippet.
-
-Names containing `blocks` are Kirby's own and stay unchanged: the `type: blocks`
-field, `toBlocks()`, and the `blocks/{type}` blueprint and snippet keys, which
-override Kirby's core block types.
+Everything this plugin owns is named `blocks`: the `zeimoto/blocks` package,
+the `zeimoto-blocks-*` Panel field and classes, the `fields/zeimoto-blocks/*`
+blueprints, the `zeimoto-blocks/*` snippets, and the `.mds-blocks-*` frontend
+classes. Containers belong to the host: the kit's article wrapper, for example,
+is `.mds-article`.
 
 ## Installation
 
 Requires PHP 8.5 and Kirby 5.6.1 or later within Kirby 5.
-The Composer package is `zeimoto/article` and installs into
-`site/plugins/zeimoto-article`. Release versions come from Git tags.
+The Composer package is `zeimoto/blocks` and installs into
+`site/plugins/zeimoto-blocks`. Release versions come from Git tags.
 
 Once published on Packagist:
 
 ```sh
-composer require zeimoto/article
+composer require zeimoto/blocks
 ```
 
-For manual installation, copy this plugin into `site/plugins/zeimoto-article`.
+For manual installation, copy this plugin into `site/plugins/zeimoto-blocks`.
 See the integration requirements below before using its public surfaces.
 The plugin is distributed under the MIT license; see [LICENSE](LICENSE).
 
@@ -95,7 +101,7 @@ remain below it. Citation and role remain plain text; source remains a URL field
 
 ## List toolbar
 
-The list block uses the plugin-owned `zeimoto-article-list` field, extending
+The list block uses the plugin-owned `zeimoto-blocks-list` field, extending
 Kirby's native List field with a `toolbar` option. The Panel preview forwards
 `marks`, `nodes`, and `toolbar` while preserving native list editing and stored HTML.
 
@@ -181,10 +187,10 @@ Install Composer and npm dependencies at the kit root. From that root, check thi
 plugin with:
 
 ```sh
-node tools/check-style.mjs --plugin site/plugins/zeimoto-article
+node tools/check-style.mjs --plugin site/plugins/zeimoto-blocks
 ```
 
-Article also requires `npm ci` in its own directory for its Panel asset build.
+Blocks also requires `npm ci` in its own directory for its Panel asset build.
 Keep the shipped `index.js` and `index.css` in the repository.
 
 ## Behavior tests

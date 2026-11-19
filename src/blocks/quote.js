@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Article :: Panel :: Quote
+// Plugins :: zeimoto :: Blocks :: Panel :: Quote
 // ==========================================================
 //
 // Extends Kirby's native quote block editor with zeimoto's
@@ -18,7 +18,7 @@ export default {
     },
   },
   render(h) {
-    return h("div", { class: ["k-block-type-quote-editor", { "zeimoto-article-quote-fixed": this.textField.toolbar?.inline === false }] }, [
+    return h("div", { class: ["k-block-type-quote-editor", { "zeimoto-blocks-quote-fixed": this.textField.toolbar?.inline === false }] }, [
       h("k-writer-input", {
         ref: "text",
         class: "k-block-type-quote-text",

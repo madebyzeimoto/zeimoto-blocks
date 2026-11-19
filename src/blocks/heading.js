@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Article :: Panel :: Heading
+// Plugins :: zeimoto :: Blocks :: Panel :: Heading
 // ==========================================================
 //
 // Marks fixed toolbars for layout while retaining native heading behavior.
@@ -10,7 +10,7 @@ export default {
   extends: "k-block-type-heading",
   render(h) {
     return h("div", {
-      class: ["k-block-type-heading-input", this.$attrs.class, { "zeimoto-article-heading-fixed": this.textField.toolbar?.inline === false }],
+      class: ["k-block-type-heading-input", this.$attrs.class, { "zeimoto-blocks-heading-fixed": this.textField.toolbar?.inline === false }],
       style: this.$attrs.style,
       attrs: { "data-level": this.content.level },
     }, [
