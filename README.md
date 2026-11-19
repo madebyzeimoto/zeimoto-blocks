@@ -19,8 +19,7 @@ override Kirby's core block types.
 
 Requires PHP 8.5 and Kirby 5.6.1 or later within Kirby 5.
 The Composer package is `zeimoto/article` and installs into
-`site/plugins/zeimoto-article`. Release versions come from Git tags. It was previously published as
-`zeimoto/blocks` (up to v0.1.7).
+`site/plugins/zeimoto-article`. Release versions come from Git tags.
 
 Once published on Packagist:
 
