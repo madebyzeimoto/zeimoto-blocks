@@ -4,8 +4,12 @@
 
 type: select
 label: Width
-default: base
+default: narrow
 options:
+  narrowest: Narrowest
+  narrower: Narrower
   narrow: Narrow
   base: Base
   wide: Wide
+  wider: Wider
+  widest: Widest

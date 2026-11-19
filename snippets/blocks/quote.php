@@ -18,7 +18,7 @@ $role       = $block->role();
 $source     = $block->source();
 $isExternal = $block->isExternal()->toBool();
 $sourceUrl  = $source->toUrl();
-$width      = $block->width()->or("base")->value();
+$width      = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($text->isNotEmpty()): ?>

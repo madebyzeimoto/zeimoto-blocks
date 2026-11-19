@@ -129,6 +129,9 @@ custom links or open the full image in the lightbox. Block alt text overrides
 file alt text for individual images; gallery items use file alt text. An empty
 alt attribute remains present when no description is available.
 
+All bundled blocks default to the Narrow width. Authors can select any other
+named MDS width, and saved selections remain unchanged.
+
 External URLs remain ordinary image elements. Their existing CSS ratio/crop
 behavior is preserved; no remote download, generated derivatives, Kirby focal
 point processing, or responsive file optimisation is performed.

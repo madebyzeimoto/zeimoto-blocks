@@ -12,7 +12,7 @@ declare(strict_types=1);
 /** @var \Kirby\Cms\Block $block */
 $text  = $block->text();
 $level = $block->level()->value();
-$width = $block->width()->or("base")->value();
+$width = $block->width()->or("narrow")->value();
 
 if (in_array($level, ["h2", "h3", "h4", "h5", "h6"], true) === false) {
   $level = "h2";

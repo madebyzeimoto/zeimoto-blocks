@@ -16,7 +16,7 @@ $caption = $block->caption();
 $crop    = $block->crop()->isTrue();
 $images  = $block->images()->toFiles();
 $ratio   = $block->ratio()->or("auto")->value();
-$width   = $block->width()->or("base")->value();
+$width   = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($images->isNotEmpty()): ?>

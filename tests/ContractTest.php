@@ -12,10 +12,33 @@ declare(strict_types=1);
 namespace Zeimoto\Blocks\Tests;
 
 use Kirby\Cms\Block;
+use Kirby\Cms\Blueprint;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 final class ContractTest extends PluginTestCase
 {
+  public function testWidthVocabularyMatchesTheMdsScale(): void
+  {
+    $this->app();
+    $field = Blueprint::extend("fields/zeimoto-blocks/width");
+    self::assertSame([
+      "narrowest" => "Narrowest",
+      "narrower" => "Narrower",
+      "narrow" => "Narrow",
+      "base" => "Base",
+      "wide" => "Wide",
+      "wider" => "Wider",
+      "widest" => "Widest",
+    ], $field["options"]);
+    self::assertSame("narrow", $field["default"]);
+
+    $block = new Block(["type" => "code", "content" => ["code" => "test", "width" => "widest"]]);
+    self::assertStringContainsString('data-width="widest"', snippet("blocks/code", ["block" => $block], true));
+
+    $block = new Block(["type" => "code", "content" => ["code" => "test"]]);
+    self::assertStringContainsString('data-width="narrow"', snippet("blocks/code", ["block" => $block], true));
+  }
+
   public function testListToolbarSurvivesFieldsetSerialization(): void
   {
     $app = $this->app();

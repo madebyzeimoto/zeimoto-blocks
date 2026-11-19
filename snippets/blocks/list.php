@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 /** @var \Kirby\Cms\Block $block */
 $text  = $block->text();
-$width = $block->width()->or("base")->value();
+$width = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($text->isNotEmpty()): ?>

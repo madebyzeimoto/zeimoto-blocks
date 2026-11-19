@@ -10,7 +10,7 @@
 declare(strict_types=1);
 
 /** @var \Kirby\Cms\Block $block */
-$width = $block->width()->or("base")->value();
+$width = $block->width()->or("narrow")->value();
 ?>
 
 <div id="<?= esc($block->id()) ?>" class="mds-blocks-line" data-width="<?= esc($width) ?>">

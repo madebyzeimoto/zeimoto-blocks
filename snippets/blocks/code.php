@@ -12,7 +12,7 @@ declare(strict_types=1);
 /** @var \Kirby\Cms\Block $block */
 $code     = $block->code();
 $language = $block->language()->or("text")->value();
-$width    = $block->width()->or("base")->value();
+$width    = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($code->isNotEmpty()): ?>

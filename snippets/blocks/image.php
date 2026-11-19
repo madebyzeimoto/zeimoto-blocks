@@ -19,7 +19,7 @@ $link    = $block->link();
 $ratio   = $block->ratio()->or("auto")->value();
 $src     = null;
 $image   = null;
-$width   = $block->width()->or("base")->value();
+$width   = $block->width()->or("narrow")->value();
 
 if ($block->location()->value() === "web") {
   $src = $block->src()->isNotEmpty() ? $block->src()->toUrl() : null;

@@ -14,7 +14,7 @@ use Kirby\Toolkit\Str;
 
 /** @var \Kirby\Cms\Block $block */
 $caption   = $block->caption();
-$width     = $block->width()->or("base")->value();
+$width     = $block->width()->or("narrow")->value();
 $videoHtml = null;
 
 if ($block->location()->value() === "kirby") {
