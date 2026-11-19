@@ -20,15 +20,15 @@ $width   = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($images->isNotEmpty()): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-blocks-gallery" data-width="<?= esc($width) ?>">
-    <figure class="mds-blocks-gallery-group"<?= Html::attr(["data-ratio" => $ratio, "data-crop" => $crop], null, " ") ?>>
-      <ul class="mds-blocks-gallery-list">
+  <div id="<?= esc($block->id()) ?>" class="mds-article-gallery" data-width="<?= esc($width) ?>">
+    <figure class="mds-article-gallery-group"<?= Html::attr(["data-ratio" => $ratio, "data-crop" => $crop], null, " ") ?>>
+      <ul class="mds-article-gallery-list">
         <?php foreach ($images as $image): ?>
-          <li class="mds-blocks-gallery-item">
-            <a href="<?= esc($image->url()) ?>" class="mds-blocks-gallery-link mds-lightgallery-item" data-no-swup>
+          <li class="mds-article-gallery-item">
+            <a href="<?= esc($image->url()) ?>" class="mds-article-gallery-link mds-lightgallery-item" data-no-swup>
               <?php snippet("zeimoto-article/image-uploaded", [
                 "image" => $image,
-                "class" => "mds-blocks-gallery-image",
+                "class" => "mds-article-gallery-image",
                 "crop" => $crop,
                 "ratio" => $ratio,
               ]); ?>
@@ -37,7 +37,7 @@ $width   = $block->width()->or("narrow")->value();
         <?php endforeach ?>
       </ul>
       <?php if ($caption->isNotEmpty()): ?>
-        <figcaption class="mds-blocks-gallery-caption">
+        <figcaption class="mds-article-gallery-caption">
           <?= $caption ?>
         </figcaption>
       <?php endif ?>

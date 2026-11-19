@@ -22,20 +22,20 @@ $width      = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($text->isNotEmpty()): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-blocks-quote" data-width="<?= esc($width) ?>">
-    <figure class="mds-blocks-quote-group" itemscope itemtype="https://schema.org/Quotation">
-      <blockquote class="mds-blocks-quote-text" itemprop="text" <?php if ($sourceUrl !== null): ?>cite="<?= esc($sourceUrl) ?>"<?php endif ?>><?= $text->kirbytextinline() ?></blockquote>
+  <div id="<?= esc($block->id()) ?>" class="mds-article-quote" data-width="<?= esc($width) ?>">
+    <figure class="mds-article-quote-group" itemscope itemtype="https://schema.org/Quotation">
+      <blockquote class="mds-article-quote-text" itemprop="text" <?php if ($sourceUrl !== null): ?>cite="<?= esc($sourceUrl) ?>"<?php endif ?>><?= $text->kirbytextinline() ?></blockquote>
       <?php if ($citation->isNotEmpty() || $role->isNotEmpty() || $sourceUrl !== null): ?>
-        <figcaption class="mds-blocks-quote-attribution">
+        <figcaption class="mds-article-quote-attribution">
           <?php if ($citation->isNotEmpty()): ?>
-            <span class="mds-blocks-quote-author" itemprop="author" itemscope itemtype="https://schema.org/Person">— <span itemprop="name"><?= $citation->html() ?></span><?php if ($role->isNotEmpty()): ?><meta itemprop="jobTitle" content="<?= $role->html() ?>"><?php endif ?></span><?php if ($role->isNotEmpty() || $sourceUrl !== null): ?>, <?php endif ?>
+            <span class="mds-article-quote-author" itemprop="author" itemscope itemtype="https://schema.org/Person">— <span itemprop="name"><?= $citation->html() ?></span><?php if ($role->isNotEmpty()): ?><meta itemprop="jobTitle" content="<?= $role->html() ?>"><?php endif ?></span><?php if ($role->isNotEmpty() || $sourceUrl !== null): ?>, <?php endif ?>
           <?php endif ?>
           <?php if ($role->isNotEmpty()): ?>
-            <span class="mds-blocks-quote-role"><?= $role->html() ?></span><?php if ($sourceUrl !== null): ?>, <?php endif ?>
+            <span class="mds-article-quote-role"><?= $role->html() ?></span><?php if ($sourceUrl !== null): ?>, <?php endif ?>
           <?php endif ?>
           <?php if ($sourceUrl !== null): ?>
             <?= Html::a($sourceUrl, "Source", [
-              "class" => "mds-blocks-quote-source",
+              "class" => "mds-article-quote-source",
               "itemprop" => "citation",
               "target" => $isExternal ? "_blank" : null,
               "rel" => $isExternal ? "noopener" : null,

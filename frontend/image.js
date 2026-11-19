@@ -22,7 +22,7 @@ export const initializeExternalImages = (onFailure) => {
       }
 
       const fallback = image.nextElementSibling
-      const link = image.closest(".mds-blocks-image-link")
+      const link = image.closest(".mds-article-image-link")
       const gallery = image.closest(".mds-lightgallery-group")
 
       image.remove()

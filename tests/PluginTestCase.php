@@ -3,7 +3,7 @@
 // Tests :: Article Fixture
 // ==========================================================
 //
-// Verifies the documented blocks fixture contracts in isolation.
+// Verifies the documented article fixture contracts in isolation.
 //
 // ==========================================================
 

@@ -15,7 +15,7 @@ $width = $block->width()->or("narrow")->value();
 ?>
 
 <?php if ($text->isNotEmpty()): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-blocks-markdown" data-width="<?= esc($width) ?>">
+  <div id="<?= esc($block->id()) ?>" class="mds-article-markdown" data-width="<?= esc($width) ?>">
     <?= $text->kt() ?>
   </div>
 <?php endif ?>

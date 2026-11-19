@@ -2,7 +2,7 @@
 // Plugins :: zeimoto :: Article :: Panel
 // ==========================================================
 //
-// Registers the modular Panel extensions for zeimoto blocks.
+// Registers the modular Panel extensions for zeimoto article blocks.
 //
 // ==========================================================
 

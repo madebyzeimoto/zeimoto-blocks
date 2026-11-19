@@ -20,7 +20,7 @@ if (in_array($level, ["h2", "h3", "h4", "h5", "h6"], true) === false) {
 ?>
 
 <?php if ($text->isNotEmpty()): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-blocks-heading" data-width="<?= esc($width) ?>">
-    <<?= $level ?> class="mds-blocks-heading-title"><?= $text ?></<?= $level ?>>
+  <div id="<?= esc($block->id()) ?>" class="mds-article-heading" data-width="<?= esc($width) ?>">
+    <<?= $level ?> class="mds-article-heading-title"><?= $text ?></<?= $level ?>>
   </div>
 <?php endif ?>

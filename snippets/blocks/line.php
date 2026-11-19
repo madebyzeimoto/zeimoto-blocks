@@ -13,6 +13,6 @@ declare(strict_types=1);
 $width = $block->width()->or("narrow")->value();
 ?>
 
-<div id="<?= esc($block->id()) ?>" class="mds-blocks-line" data-width="<?= esc($width) ?>">
-  <hr class="mds-blocks-line-divider">
+<div id="<?= esc($block->id()) ?>" class="mds-article-line" data-width="<?= esc($width) ?>">
+  <hr class="mds-article-line-divider">
 </div>

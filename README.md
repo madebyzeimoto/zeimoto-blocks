@@ -1,6 +1,19 @@
 # zeimoto Article
 
-Custom Kirby blocks with Panel blueprints and frontend snippets.
+Article blocks — the prose body of a page (heading, text, list, image, gallery,
+video, quote, line, code, markdown) — with Panel blueprints and frontend snippets.
+
+## Naming
+
+Everything this plugin owns is named `article`: the `zeimoto/article` package,
+the `zeimoto-article-*` Panel field and classes, the `fields/zeimoto-article/*`
+blueprints, the `zeimoto-article/*` snippets, and the `.mds-article-*` frontend
+classes. The host kit stores the content in an `article` field rendered by its
+`components/article` snippet.
+
+Names containing `blocks` are Kirby's own and stay unchanged: the `type: blocks`
+field, `toBlocks()`, and the `blocks/{type}` blueprint and snippet keys, which
+override Kirby's core block types.
 
 ## Installation
 

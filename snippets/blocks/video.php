@@ -22,7 +22,7 @@ if ($block->location()->value() === "kirby") {
     $autoplay = $block->autoplay()->toBool();
     $attrs    = array_filter([
       "autoplay"    => $autoplay,
-      "class"       => "mds-blocks-video-media",
+      "class"       => "mds-article-video-media",
       "controls"    => $block->controls()->toBool(),
       "loop"        => $block->loop()->toBool(),
       "muted"       => $block->muted()->toBool() || $autoplay,
@@ -42,13 +42,13 @@ if ($block->location()->value() === "kirby") {
   $isIframe    = Str::contains($url, "youtu", true) || Str::contains($url, "vimeo", true);
 
   $attrs = [
-    "class"  => "mds-blocks-video-media",
+    "class"  => "mds-article-video-media",
     "height" => $mediaHeight,
     ...($isIframe ? [
       "loading" => "lazy",
       "title"   => trim(Str::unhtml($caption->value())) ?: t("field.blocks.video.name"),
     ] : []),
-    "style" => "--mds-blocks-video-aspect-ratio: {$mediaWidth} / {$mediaHeight}",
+    "style" => "--mds-article-video-aspect-ratio: {$mediaWidth} / {$mediaHeight}",
     "width" => $mediaWidth,
   ];
 
@@ -57,12 +57,12 @@ if ($block->location()->value() === "kirby") {
 ?>
 
 <?php if ($videoHtml !== null): ?>
-  <div id="<?= esc($block->id()) ?>" class="mds-blocks-video" data-width="<?= esc($width) ?>">
-    <figure class="mds-blocks-video-group">
+  <div id="<?= esc($block->id()) ?>" class="mds-article-video" data-width="<?= esc($width) ?>">
+    <figure class="mds-article-video-group">
       <?= $videoHtml ?>
 
       <?php if ($caption->isNotEmpty()): ?>
-        <figcaption class="mds-blocks-video-caption">
+        <figcaption class="mds-article-video-caption">
           <?= $caption ?>
         </figcaption>
       <?php endif ?>

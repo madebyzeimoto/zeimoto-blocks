@@ -3,7 +3,7 @@
 // Plugins :: zeimoto :: Article
 // ==========================================================
 //
-// Owns zeimoto's custom Kirby blocks, including their Panel
+// Owns zeimoto's article blocks, including their Panel
 // editors, block blueprints, and public rendering snippets.
 //
 // ==========================================================

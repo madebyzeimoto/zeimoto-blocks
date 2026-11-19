@@ -12,7 +12,7 @@ declare(strict_types=1);
 if ($image !== null) {
   snippet("zeimoto-article/image-uploaded", [
     "image" => $image,
-    "class" => "mds-blocks-image-media",
+    "class" => "mds-article-image-media",
     "alt" => $alt,
     "crop" => $crop,
     "ratio" => $ratio,
@@ -21,10 +21,10 @@ if ($image !== null) {
   echo '<img ' . Kirby\Cms\Html::attr([
     "src" => $src,
     "alt" => $alt ?? "",
-    "class" => "mds-blocks-image-media",
+    "class" => "mds-article-image-media",
     "loading" => "lazy",
     "fetchpriority" => "auto",
     "data-external-image" => true,
   ]) . '>';
-  echo '<div class="mds-blocks-image-fallback" hidden><p class="mds-blocks-image-message">This image is currently unavailable.</p></div>';
+  echo '<div class="mds-article-image-fallback" hidden><p class="mds-article-image-message">This image is currently unavailable.</p></div>';
 }
