@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Text
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Text
 // ==========================================================
 //
 // Renders saved rich text within its block boundary.

@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Frontend :: Image
+// Plugins :: zeimoto :: Article :: Frontend :: Image
 // ==========================================================
 //
 // Replaces unavailable external images and refreshes their lightbox groups.

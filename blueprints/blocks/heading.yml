@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Heading
+# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Heading
 # ==========================================================
 
 name: field.blocks.heading.name
@@ -46,5 +46,5 @@ fields:
     inline: true
     placeholder: field.blocks.heading.placeholder
   width:
-    extends: fields/zeimoto-blocks/width
+    extends: fields/zeimoto-article/width
     width: 3/6

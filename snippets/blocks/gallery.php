@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Gallery
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Gallery
 // ==========================================================
 //
 // Renders uploaded gallery images, captions, and lightbox links.
@@ -26,7 +26,7 @@ $width   = $block->width()->or("narrow")->value();
         <?php foreach ($images as $image): ?>
           <li class="mds-blocks-gallery-item">
             <a href="<?= esc($image->url()) ?>" class="mds-blocks-gallery-link mds-lightgallery-item" data-no-swup>
-              <?php snippet("zeimoto-blocks/image-uploaded", [
+              <?php snippet("zeimoto-article/image-uploaded", [
                 "image" => $image,
                 "class" => "mds-blocks-gallery-image",
                 "crop" => $crop,

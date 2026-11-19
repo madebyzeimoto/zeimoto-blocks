@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Tests :: Blocks Contracts
+// Tests :: Article Contracts
 // ==========================================================
 //
 // Exercises the plugin public behavior with disposable Kirby fixtures.
@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Zeimoto\Blocks\Tests;
+namespace Zeimoto\Article\Tests;
 
 use Kirby\Cms\Block;
 use Kirby\Cms\Blueprint;
@@ -20,7 +20,7 @@ final class ContractTest extends PluginTestCase
   public function testWidthVocabularyMatchesTheMdsScale(): void
   {
     $this->app();
-    $field = Blueprint::extend("fields/zeimoto-blocks/width");
+    $field = Blueprint::extend("fields/zeimoto-article/width");
     self::assertSame([
       "narrowest" => "Narrowest",
       "narrower" => "Narrower",
@@ -45,7 +45,7 @@ final class ContractTest extends PluginTestCase
     $fieldset = new \Kirby\Cms\Fieldset([
       "type" => "list",
       "fields" => ["text" => [
-        "type" => "zeimoto-blocks-list",
+        "type" => "zeimoto-article-list",
         "marks" => ["bold", "italic", "link"],
         "nodes" => ["bulletList", "orderedList"],
         "toolbar" => ["inline" => false],
@@ -55,7 +55,7 @@ final class ContractTest extends PluginTestCase
     self::assertSame(["inline" => false], $field["toolbar"]);
     self::assertSame(["bold", "italic", "link"], $field["marks"]);
     self::assertSame(["bulletList", "orderedList"], $field["nodes"]);
-    $default = new \Kirby\Form\Field("zeimoto-blocks-list", ["name" => "text", "model" => $app->site()]);
+    $default = new \Kirby\Form\Field("zeimoto-article-list", ["name" => "text", "model" => $app->site()]);
     self::assertNull($default->toolbar());
   }
 

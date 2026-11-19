@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Code
+# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Code
 # ==========================================================
 
 name: field.blocks.code.name
@@ -62,5 +62,5 @@ fields:
       xml: XML
       yaml: YAML
   width:
-    extends: fields/zeimoto-blocks/width
+    extends: fields/zeimoto-article/width
     width: 3/6

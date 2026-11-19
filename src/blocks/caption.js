@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Panel :: Caption
+// Plugins :: zeimoto :: Article :: Panel :: Caption
 // ==========================================================
 //
 // Keeps media caption formatting at the top of its block.
@@ -9,7 +9,7 @@
 export default {
   extends: "k-block-figure-caption",
   render(h) {
-    return h("figcaption", { class: ["k-block-figure-caption", "zeimoto-blocks-caption-fixed"] }, [
+    return h("figcaption", { class: ["k-block-figure-caption", "zeimoto-article-caption-fixed"] }, [
       h("k-writer-input", {
         attrs: {
           disabled: this.disabled,

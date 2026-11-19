@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Code
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Code
 // ==========================================================
 //
 // Renders escaped code while preserving its stored whitespace.

@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Markdown
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Markdown
 // ==========================================================
 //
 // Renders Markdown content through Kirbytext.

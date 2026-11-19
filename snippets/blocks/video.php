@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Video
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Video
 // ==========================================================
 //
 // Renders uploaded video or supported external video markup.

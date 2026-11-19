@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Panel
+// Plugins :: zeimoto :: Article :: Panel
 // ==========================================================
 //
 // Registers the modular Panel extensions for zeimoto blocks.
@@ -12,9 +12,9 @@ import heading from "./blocks/heading.js"
 import list from "./blocks/list.js"
 import quote from "./blocks/quote.js"
 
-panel.plugin("zeimoto/blocks", {
+panel.plugin("zeimoto/article", {
   fields: {
-    "zeimoto-blocks-list": { extends: "k-list-field" },
+    "zeimoto-article-list": { extends: "k-list-field" },
   },
   components: {
     "k-block-figure-caption": caption,

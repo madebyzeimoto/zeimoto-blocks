@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: List
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: List
 // ==========================================================
 //
 // Renders the saved list markup within its block boundary.

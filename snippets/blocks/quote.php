@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Quote
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Quote
 // ==========================================================
 //
 // Renders quote text, attribution, and source metadata.

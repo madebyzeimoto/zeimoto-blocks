@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Heading
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Heading
 // ==========================================================
 //
 // Renders a validated heading level and inline heading text.

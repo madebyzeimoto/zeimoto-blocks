@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Image Uploaded
+// Plugins :: zeimoto :: Article :: Snippets :: Image Uploaded
 // ==========================================================
 //
 // Resolves block crop dimensions and delegates to the image plugin.
@@ -10,7 +10,7 @@
 declare(strict_types=1);
 
 if (!function_exists("zeimotoImage") || !function_exists("zeimotoImageThumbnail")) {
-  throw new LogicException("zeimoto-blocks requires zeimoto-image to render uploaded images. Install and enable zeimoto-image.");
+  throw new LogicException("zeimoto-article requires zeimoto-image to render uploaded images. Install and enable zeimoto-image.");
 }
 
 $props = ["image" => $image, "class" => $class];

@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Tests :: Blocks Bootstrap
+// Tests :: Article Bootstrap
 // ==========================================================
 //
 // Verifies the documented blocks bootstrap contracts in isolation.

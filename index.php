@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks
+// Plugins :: zeimoto :: Article
 // ==========================================================
 //
 // Owns zeimoto's custom Kirby blocks, including their Panel
@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-Kirby::plugin("zeimoto/blocks", [
+Kirby::plugin("zeimoto/article", [
   "fields" => [
-    "zeimoto-blocks-list" => [
+    "zeimoto-article-list" => [
       "extends" => "list",
       "props" => [
         "toolbar" => function (array|null $toolbar = null): array|null {
@@ -32,13 +32,13 @@ Kirby::plugin("zeimoto/blocks", [
     "blocks/quote" => __DIR__ . "/blueprints/blocks/quote.yml",
     "blocks/text" => __DIR__ . "/blueprints/blocks/text.yml",
     "blocks/video" => __DIR__ . "/blueprints/blocks/video.yml",
-    "fields/zeimoto-blocks/crop" => __DIR__ . "/blueprints/fields/crop.yml",
-    "fields/zeimoto-blocks/ratio" => __DIR__ . "/blueprints/fields/ratio.yml",
-    "fields/zeimoto-blocks/width" => __DIR__ . "/blueprints/fields/width.yml",
+    "fields/zeimoto-article/crop" => __DIR__ . "/blueprints/fields/crop.yml",
+    "fields/zeimoto-article/ratio" => __DIR__ . "/blueprints/fields/ratio.yml",
+    "fields/zeimoto-article/width" => __DIR__ . "/blueprints/fields/width.yml",
   ],
   "snippets" => [
-    "zeimoto-blocks/image-render" => __DIR__ . "/snippets/image-render.php",
-    "zeimoto-blocks/image-uploaded" => __DIR__ . "/snippets/image-uploaded.php",
+    "zeimoto-article/image-render" => __DIR__ . "/snippets/image-render.php",
+    "zeimoto-article/image-uploaded" => __DIR__ . "/snippets/image-uploaded.php",
     "blocks/code" => __DIR__ . "/snippets/blocks/code.php",
     "blocks/gallery" => __DIR__ . "/snippets/blocks/gallery.php",
     "blocks/heading" => __DIR__ . "/snippets/blocks/heading.php",

@@ -1,20 +1,20 @@
-# zeimoto Blocks
+# zeimoto Article
 
 Custom Kirby blocks with Panel blueprints and frontend snippets.
 
 ## Installation
 
 Requires PHP 8.5 and Kirby 5.6.1 or later within Kirby 5.
-The Composer package is `zeimoto/blocks` and installs into
-`site/plugins/zeimoto-blocks`. Release versions come from Git tags.
+The Composer package is `zeimoto/article` and installs into
+`site/plugins/zeimoto-article`. Release versions come from Git tags.
 
 Once published on Packagist:
 
 ```sh
-composer require zeimoto/blocks
+composer require zeimoto/article
 ```
 
-For manual installation, copy this plugin into `site/plugins/zeimoto-blocks`.
+For manual installation, copy this plugin into `site/plugins/zeimoto-article`.
 See the integration requirements below before using its public surfaces.
 The plugin is distributed under the MIT license; see [LICENSE](LICENSE).
 
@@ -82,7 +82,7 @@ remain below it. Citation and role remain plain text; source remains a URL field
 
 ## List toolbar
 
-The list block uses the plugin-owned `zeimoto-blocks-list` field, extending
+The list block uses the plugin-owned `zeimoto-article-list` field, extending
 Kirby's native List field with a `toolbar` option. The Panel preview forwards
 `marks`, `nodes`, and `toolbar` while preserving native list editing and stored HTML.
 
@@ -168,10 +168,10 @@ Install Composer and npm dependencies at the kit root. From that root, check thi
 plugin with:
 
 ```sh
-node tools/check-style.mjs --plugin site/plugins/zeimoto-blocks
+node tools/check-style.mjs --plugin site/plugins/zeimoto-article
 ```
 
-Blocks also requires `npm ci` in its own directory for its Panel asset build.
+Article also requires `npm ci` in its own directory for its Panel asset build.
 Keep the shipped `index.js` and `index.css` in the repository.
 
 ## Behavior tests

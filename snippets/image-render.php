@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Image Render
+// Plugins :: zeimoto :: Article :: Snippets :: Image Render
 // ==========================================================
 //
 // Selects uploaded-image rendering or external image markup.
@@ -10,7 +10,7 @@
 declare(strict_types=1);
 
 if ($image !== null) {
-  snippet("zeimoto-blocks/image-uploaded", [
+  snippet("zeimoto-article/image-uploaded", [
     "image" => $image,
     "class" => "mds-blocks-image-media",
     "alt" => $alt,

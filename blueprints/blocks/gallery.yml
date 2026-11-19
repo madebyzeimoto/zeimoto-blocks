@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Gallery
+# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Gallery
 # ==========================================================
 
 name: field.blocks.gallery.name
@@ -34,11 +34,11 @@ fields:
     icon: text
     inline: true
   ratio:
-    extends: fields/zeimoto-blocks/ratio
+    extends: fields/zeimoto-article/ratio
     width: 1/2
   crop:
-    extends: fields/zeimoto-blocks/crop
+    extends: fields/zeimoto-article/crop
     width: 1/2
   width:
-    extends: fields/zeimoto-blocks/width
+    extends: fields/zeimoto-article/width
     width: 3/6

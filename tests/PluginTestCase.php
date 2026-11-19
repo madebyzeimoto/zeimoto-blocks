@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Tests :: Blocks Fixture
+// Tests :: Article Fixture
 // ==========================================================
 //
 // Verifies the documented blocks fixture contracts in isolation.
@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Zeimoto\Blocks\Tests;
+namespace Zeimoto\Article\Tests;
 
 use Kirby\Cms\App;
 use PHPUnit\Framework\TestCase;

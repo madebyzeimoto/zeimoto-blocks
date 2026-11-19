@@ -1,5 +1,5 @@
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Panel :: List
+// Plugins :: zeimoto :: Article :: Panel :: List
 // ==========================================================
 //
 // Forwards field configuration while retaining native list editing.
@@ -16,7 +16,7 @@ export default {
   render(h) {
     return h("k-input", {
       ref: "input",
-      class: ["k-block-type-list-input", { "zeimoto-blocks-list-fixed": this.textField.toolbar?.inline === false }],
+      class: ["k-block-type-list-input", { "zeimoto-article-list-fixed": this.textField.toolbar?.inline === false }],
       // k-input forwards editor-specific settings through $attrs.
       attrs: {
         type: "list",

@@ -22,7 +22,7 @@ test("media captions use a fixed toolbar and preserve native rich text updates",
   const tree = caption.render.call(editor, h)
   assert.equal(caption.extends, "k-block-figure-caption")
   assert.equal(tree.tag, "figcaption")
-  assert.ok(tree.data.class.includes("zeimoto-blocks-caption-fixed"))
+  assert.ok(tree.data.class.includes("zeimoto-article-caption-fixed"))
   const input = tree.children[0]
   assert.equal(input.tag, "k-writer-input")
   assert.equal(input.data.attrs.toolbar.inline, false)

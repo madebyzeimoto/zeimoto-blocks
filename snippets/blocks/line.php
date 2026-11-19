@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Line
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Line
 // ==========================================================
 //
 // Renders a divider within the selected block width.

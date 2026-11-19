@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Markdown
+# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Markdown
 # ==========================================================
 
 name: field.blocks.markdown.name
@@ -14,5 +14,5 @@ fields:
     buttons: false
     font: monospace
   width:
-    extends: fields/zeimoto-blocks/width
+    extends: fields/zeimoto-article/width
     width: 3/6

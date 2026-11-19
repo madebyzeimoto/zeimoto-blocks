@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Plugins :: zeimoto :: Blocks :: Snippets :: Blocks :: Image
+// Plugins :: zeimoto :: Article :: Snippets :: Blocks :: Image
 // ==========================================================
 //
 // Renders uploaded or external images with links and captions.
@@ -34,7 +34,7 @@ if ($block->location()->value() === "web") {
     <figure class="mds-blocks-image-group"<?= Html::attr(["data-ratio" => $ratio, "data-crop" => $crop], null, " ") ?>>
       <?php if (($linkUrl = $link->toUrl()) !== null): ?>
         <a href="<?= esc($linkUrl) ?>" class="mds-blocks-image-link">
-          <?php snippet("zeimoto-blocks/image-render", [
+          <?php snippet("zeimoto-article/image-render", [
             "image" => $image,
             "src" => $src,
             "alt" => $alt->value(),
@@ -44,7 +44,7 @@ if ($block->location()->value() === "web") {
         </a>
       <?php else: ?>
         <a href="<?= esc($src) ?>" class="mds-blocks-image-link mds-lightgallery-item" data-no-swup>
-          <?php snippet("zeimoto-blocks/image-render", [
+          <?php snippet("zeimoto-article/image-render", [
             "image" => $image,
             "src" => $src,
             "alt" => $alt->value(),

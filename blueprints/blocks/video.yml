@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Video
+# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Video
 # ==========================================================
 
 name: field.blocks.video.name
@@ -108,5 +108,5 @@ fields:
     when:
       location: web
   width:
-    extends: fields/zeimoto-blocks/width
+    extends: fields/zeimoto-article/width
     width: 3/6

@@ -35,7 +35,7 @@ test("list forwards fixed toolbar settings without replacing native input handli
   assert.equal(tree.data.attrs.keys, editor.keys)
   assert.equal(tree.data.attrs.disabled, true)
   assert.equal(tree.data.attrs.value, editor.content.text)
-  assert.equal(tree.data.class[1]["zeimoto-blocks-list-fixed"], true)
+  assert.equal(tree.data.class[1]["zeimoto-article-list-fixed"], true)
   tree.data.on.input("<ol><li>Updated</li></ol>")
   assert.equal(updates[0].text, "<ol><li>Updated</li></ol>")
 })
@@ -44,7 +44,7 @@ test("list retains floating toolbar and both list types when settings are omitte
   const tree = list.render.call({ textField: {}, content: { text: "" } }, h)
   assert.equal(tree.data.attrs.toolbar.inline, true)
   assert.equal(Array.from(tree.data.attrs.nodes).join(","), "bulletList,orderedList")
-  assert.equal(tree.data.class[1]["zeimoto-blocks-list-fixed"], false)
+  assert.equal(tree.data.class[1]["zeimoto-article-list-fixed"], false)
 })
 
 

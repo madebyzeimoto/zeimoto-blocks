@@ -1,5 +1,5 @@
 # ==========================================================
-# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Line
+# Plugins :: zeimoto :: Article :: Blueprints :: Blocks :: Line
 # ==========================================================
 
 name: field.blocks.line.name
@@ -8,5 +8,5 @@ preview: line
 wysiwyg: true
 fields:
   width:
-    extends: fields/zeimoto-blocks/width
+    extends: fields/zeimoto-article/width
     width: 3/6

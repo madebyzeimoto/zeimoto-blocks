@@ -1,5 +1,5 @@
 {
-  "name": "zeimoto-blocks",
+  "name": "zeimoto-article",
   "private": true,
   "scripts": {
     "build": "kirbyup src/index.js",
