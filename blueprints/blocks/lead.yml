@@ -1,0 +1,35 @@
+# ==========================================================
+# Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Lead
+# ==========================================================
+
+name: Lead
+icon: megaphone
+preview: lead
+wysiwyg: true
+fields:
+  text:
+    type: zeimoto-writer
+    label: Text
+    placeholder: field.blocks.text.placeholder
+    toolbar:
+      inline: false
+    marks:
+      - bold
+      - italic
+      - strike
+      - "|"
+      - link
+      - "|"
+      - clear
+  cta:
+    type: pages
+    label: CTA
+    translate: false
+    multiple: false
+    query: site.children.listed
+    width: 3/6
+  ctaLabel:
+    type: text
+    label: CTA Label
+    placeholder: CTA label …
+    width: 3/6

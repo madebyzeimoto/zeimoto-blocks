@@ -1,7 +1,7 @@
 # zeimoto Blocks
 
 The single home of zeimoto's Kirby block types: heading, text, list, image,
-gallery, video, quote, line, code, and markdown, each with its Panel blueprint,
+gallery, video, quote, lead, line, code, and markdown, each with its Panel blueprint,
 Panel preview where needed, and frontend snippet.
 
 ## Where blocks are used
@@ -66,7 +66,7 @@ Image, gallery and video-poster uploads use the host’s `image` file blueprint.
 Local video uploads use its `audiovisual` blueprint. The host supplies both
 blueprints; video selection still queries `model.videos`, including existing
 videos with other templates.
-The quote block's text field uses the inline rich-text field from `zeimoto-writer`.
+The quote and lead blocks' text fields use the inline rich-text field from `zeimoto-writer`.
 Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at `^0.1`.
 For manual installation, install and enable `zeimoto-image` and `zeimoto-writer`
 alongside this plugin. Uploaded-image rendering reports a clear error if its
@@ -74,7 +74,7 @@ image helpers are absent.
 
 ## Rich-text block defaults
 
-Heading, text, list, quote, and image/gallery/video caption fields default to
+Heading, text, list, quote, lead, and image/gallery/video caption fields default to
 persistent toolbars with bold, italic, strikethrough, link, and clear formatting.
 Lists additionally retain their native bulleted/numbered list controls.
 
@@ -198,3 +198,10 @@ Keep the shipped `index.js` and `index.css` in the repository.
 Run `composer install` and `composer test` from this repository. Tests boot Kirby
 with disposable runtime directories and never load project secrets or send real
 mail. The host kit can also run this suite with `composer test:plugins`.
+
+## Lead editor
+
+The lead preview edits its text inline with the same Writer configuration as
+quote, forwarding `toolbar` (`inline: false` by default). The CTA label is an
+inline text input; the CTA page button opens Kirby's page picker dialog,
+limited to the blueprint's `query` (listed top-level pages by default).

@@ -62,7 +62,7 @@ final class ContractTest extends PluginTestCase
   public function testRichTextBlockBlueprintsDefaultToMatchingFixedToolbars(): void
   {
     $this->app();
-    foreach (["heading", "text", "list", "quote", "image", "gallery", "video"] as $type) {
+    foreach (["heading", "text", "list", "quote", "lead", "image", "gallery", "video"] as $type) {
       $fieldset = new \Kirby\Cms\Fieldset([
         ...\Kirby\Cms\Blueprint::extend("blocks/" . $type),
         "type" => $type,
@@ -96,10 +96,26 @@ final class ContractTest extends PluginTestCase
     self::assertStringContainsString("<" . $expected . " ", $html);
   }
 
+  public function testLeadRendersTextAndPageCta(): void
+  {
+    $this->app([], ["children" => [["slug" => "about", "num" => 1, "content" => ["title" => "About"]]]]);
+    $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["text" => "Hello <strong>world</strong>", "cta" => "- about", "ctaLabel" => "Learn & more"]])], true);
+    self::assertStringContainsString('class="mds-lead-callout-text mds-lead">Hello <strong>world</strong></p>', $html);
+    self::assertStringContainsString('href="http://localhost/about"', $html);
+    self::assertStringContainsString(">Learn &amp; more</a>", $html);
+
+    $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["cta" => "- about"]])], true);
+    self::assertStringContainsString(">Read more</a>", $html);
+    self::assertStringNotContainsString("mds-lead-callout-text", $html);
+
+    $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["text" => "Only text"]])], true);
+    self::assertStringNotContainsString("mds-lead-callout-button", $html);
+  }
+
   public function testEmptyImageAndTextRemainQuiet(): void
   {
     $this->app();
-    foreach (["text", "image", "gallery"] as $type) {
+    foreach (["text", "lead", "image", "gallery"] as $type) {
       self::assertSame("", trim(snippet("blocks/" . $type, ["block" => new Block(["type" => $type])], true)));
     }
   }
