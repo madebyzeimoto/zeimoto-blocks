@@ -6,11 +6,14 @@
 //
 // ==========================================================
 
-import { h } from "vue"
+import { h, resolveComponent } from "vue"
 
 export default {
   extends: "k-block-type-heading",
   render() {
+    const writerInput = resolveComponent("k-writer-input")
+    const input = resolveComponent("k-input")
+
     return h(
       "div",
       {
@@ -23,7 +26,7 @@ export default {
         "data-level": this.content.level,
       },
       [
-        h("k-writer-input", {
+        h(writerInput, {
           ref: "input",
           ...this.textField,
           disabled: this.disabled,
@@ -33,7 +36,7 @@ export default {
           onInput: (value) => this.update({ text: value }),
         }),
         this.levels.length > 1
-          ? h("k-input", {
+          ? h(input, {
               ref: "level",
               class: "k-block-type-heading-level",
               disabled: this.disabled,

@@ -6,7 +6,7 @@
 //
 // ==========================================================
 
-import { h } from "vue"
+import { h, resolveComponent } from "vue"
 
 export default {
   extends: "k-block-type-list",
@@ -16,7 +16,9 @@ export default {
     },
   },
   render() {
-    return h("k-input", {
+    const input = resolveComponent("k-input")
+
+    return h(input, {
       ref: "input",
       class: ["k-block-type-list-input", { "zeimoto-blocks-list-fixed": this.textField.toolbar?.inline === false }],
       // k-input forwards editor-specific settings through $attrs.

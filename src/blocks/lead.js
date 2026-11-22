@@ -7,7 +7,7 @@
 //
 // ==========================================================
 
-import { h } from "vue"
+import { h, resolveComponent } from "vue"
 
 export default {
   extends: "k-block-type-quote",
@@ -50,13 +50,18 @@ export default {
     },
   },
   render() {
+    const writerInput = resolveComponent("k-writer-input")
+    const items = resolveComponent("k-items")
+    const empty = resolveComponent("k-empty")
+    const textInput = resolveComponent("k-text-input")
+
     return h(
       "div",
       {
         class: ["k-block-type-lead-editor", { "zeimoto-blocks-lead-fixed": this.textField.toolbar?.inline === false }],
       },
       [
-        h("k-writer-input", {
+        h(writerInput, {
           ref: "text",
           class: "k-block-type-lead-text",
           disabled: this.disabled,
@@ -71,7 +76,7 @@ export default {
         h("div", { class: "k-block-type-lead-cta" }, [
           h("div", { ref: "cta", class: "k-block-type-lead-cta-page", onClick: () => this.pickCta() }, [
             this.ctaPage
-              ? h("k-items", {
+              ? h(items, {
                   items: [
                       {
                         ...this.ctaPage,
@@ -83,9 +88,9 @@ export default {
                     ],
                   layout: "list",
                 })
-              : h("k-empty", { icon: "page", layout: "list" }, { default: () => this.$t("field.pages.empty.single") }),
+              : h(empty, { icon: "page", layout: "list" }, { default: () => this.$t("field.pages.empty.single") }),
           ]),
-          h("k-text-input", {
+          h(textInput, {
             ref: "ctaLabel",
             class: "k-block-type-lead-cta-label",
             disabled: this.disabled,

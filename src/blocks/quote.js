@@ -7,7 +7,7 @@
 //
 // ==========================================================
 
-import { h } from "vue"
+import { h, resolveComponent } from "vue"
 
 export default {
   extends: "k-block-type-quote",
@@ -20,6 +20,10 @@ export default {
     },
   },
   render() {
+    const writerInput = resolveComponent("k-writer-input")
+    const textInput = resolveComponent("k-text-input")
+    const urlInput = resolveComponent("k-url-input")
+
     return h(
       "div",
       {
@@ -29,7 +33,7 @@ export default {
         ],
       },
       [
-        h("k-writer-input", {
+        h(writerInput, {
           ref: "text",
           class: "k-block-type-quote-text",
           disabled: this.disabled,
@@ -45,9 +49,9 @@ export default {
           "div",
           { class: "k-block-type-quote-grid" },
           [
-            ["citation", "k-text-input", this.citationField],
-            ["role", "k-text-input", this.roleField],
-            ["source", "k-url-input", this.sourceField],
+            ["citation", textInput, this.citationField],
+            ["role", textInput, this.roleField],
+            ["source", urlInput, this.sourceField],
           ].map(([name, component, field]) =>
             h(component, {
               ref: name,
