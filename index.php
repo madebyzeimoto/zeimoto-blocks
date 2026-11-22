@@ -10,16 +10,11 @@
 
 declare(strict_types=1);
 
+use Kirby\Form\Field\ListField;
+
 Kirby::plugin("zeimoto/blocks", [
   "fields" => [
-    "zeimoto-blocks-list" => [
-      "extends" => "list",
-      "props" => [
-        "toolbar" => function (array|null $toolbar = null): array|null {
-          return $toolbar;
-        },
-      ],
-    ],
+    "zeimoto-blocks-list" => ListField::class,
   ],
   "blueprints" => [
     "blocks/code" => __DIR__ . "/blueprints/blocks/code.yml",

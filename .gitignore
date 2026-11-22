@@ -48,5 +48,5 @@ NOTES.md
 # Development Build
 # ==========================================================
 
-/index.dev.mjs
+/index.dev.js
 /.phpunit.cache/

@@ -15,7 +15,7 @@ import quote from "./blocks/quote.js"
 
 panel.plugin("zeimoto/blocks", {
   fields: {
-    "zeimoto-blocks-list": { extends: "k-list-field" },
+    "zeimoto-blocks-list": "k-list-field",
   },
   components: {
     "k-block-figure-caption": caption,

@@ -7,6 +7,8 @@
 //
 // ==========================================================
 
+import { h } from "vue"
+
 export default {
   extends: "k-block-type-quote",
   computed: {
@@ -17,7 +19,7 @@ export default {
       return this.field("source", {})
     },
   },
-  render(h) {
+  render() {
     return h(
       "div",
       {
@@ -30,16 +32,14 @@ export default {
         h("k-writer-input", {
           ref: "text",
           class: "k-block-type-quote-text",
-          props: {
-            disabled: this.disabled,
-            inline: this.textField.inline ?? false,
-            marks: this.textField.marks,
-            nodes: this.textField.nodes,
-            toolbar: this.textField.toolbar ?? { inline: true },
-            placeholder: this.textField.placeholder,
-            value: this.content.text,
-          },
-          on: { input: (value) => this.update({ text: value }) },
+          disabled: this.disabled,
+          inline: this.textField.inline ?? false,
+          marks: this.textField.marks,
+          nodes: this.textField.nodes,
+          toolbar: this.textField.toolbar ?? { inline: true },
+          placeholder: this.textField.placeholder,
+          value: this.content.text,
+          onInput: (value) => this.update({ text: value }),
         }),
         h(
           "div",
@@ -52,8 +52,10 @@ export default {
             h(component, {
               ref: name,
               class: `k-block-type-quote-${name}`,
-              props: { disabled: this.disabled, placeholder: field.placeholder, value: this.content[name] },
-              on: { input: (value) => this.update({ [name]: value }) },
+              disabled: this.disabled,
+              placeholder: field.placeholder,
+              value: this.content[name],
+              onInput: (value) => this.update({ [name]: value }),
             })
           )
         ),

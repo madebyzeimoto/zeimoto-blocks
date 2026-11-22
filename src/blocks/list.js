@@ -6,6 +6,8 @@
 //
 // ==========================================================
 
+import { h } from "vue"
+
 export default {
   extends: "k-block-type-list",
   computed: {
@@ -13,21 +15,19 @@ export default {
       return this.field("text", {})
     },
   },
-  render(h) {
+  render() {
     return h("k-input", {
       ref: "input",
       class: ["k-block-type-list-input", { "zeimoto-blocks-list-fixed": this.textField.toolbar?.inline === false }],
       // k-input forwards editor-specific settings through $attrs.
-      attrs: {
-        type: "list",
-        disabled: this.disabled,
-        keys: this.keys,
-        marks: this.textField.marks,
-        nodes: this.textField.nodes ?? ["bulletList", "orderedList"],
-        toolbar: this.textField.toolbar ?? { inline: true },
-        value: this.content.text,
-      },
-      on: { input: (value) => this.update({ text: value }) },
+      type: "list",
+      disabled: this.disabled,
+      keys: this.keys,
+      marks: this.textField.marks,
+      nodes: this.textField.nodes ?? ["bulletList", "orderedList"],
+      toolbar: this.textField.toolbar ?? { inline: true },
+      value: this.content.text,
+      onInput: (value) => this.update({ text: value }),
     })
   },
 }

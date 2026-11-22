@@ -7,6 +7,8 @@
 //
 // ==========================================================
 
+import { h } from "vue"
+
 export default {
   extends: "k-block-type-quote",
   computed: {
@@ -37,19 +39,17 @@ export default {
           multiple: false,
           value: (this.content.cta ?? []).map((page) => page.id),
         },
-        on: {
-          submit: (pages) => {
+        onSubmit: (pages) => {
             this.update({ cta: pages.slice(0, 1) })
             this.$panel.dialog.close()
           },
-        },
       })
     },
     focus() {
       this.$refs.text?.focus()
     },
   },
-  render(h) {
+  render() {
     return h(
       "div",
       {
@@ -59,23 +59,20 @@ export default {
         h("k-writer-input", {
           ref: "text",
           class: "k-block-type-lead-text",
-          props: {
-            disabled: this.disabled,
-            inline: this.textField.inline ?? false,
-            marks: this.textField.marks,
-            nodes: this.textField.nodes,
-            toolbar: this.textField.toolbar ?? { inline: true },
-            placeholder: this.textField.placeholder ?? "Text …",
-            value: this.content.text,
-          },
-          on: { input: (value) => this.update({ text: value }) },
+          disabled: this.disabled,
+          inline: this.textField.inline ?? false,
+          marks: this.textField.marks,
+          nodes: this.textField.nodes,
+          toolbar: this.textField.toolbar ?? { inline: true },
+          placeholder: this.textField.placeholder ?? "Text …",
+          value: this.content.text,
+          onInput: (value) => this.update({ text: value }),
         }),
         h("div", { class: "k-block-type-lead-cta" }, [
-          h("div", { ref: "cta", class: "k-block-type-lead-cta-page", on: { click: () => this.pickCta() } }, [
+          h("div", { ref: "cta", class: "k-block-type-lead-cta-page", onClick: () => this.pickCta() }, [
             this.ctaPage
               ? h("k-items", {
-                  props: {
-                    items: [
+                  items: [
                       {
                         ...this.ctaPage,
                         link: false,
@@ -84,20 +81,17 @@ export default {
                           : [{ icon: "remove", title: this.$t("remove"), click: (event) => this.removeCta(event) }],
                       },
                     ],
-                    layout: "list",
-                  },
+                  layout: "list",
                 })
-              : h("k-empty", { props: { icon: "page", layout: "list" } }, this.$t("field.pages.empty.single")),
+              : h("k-empty", { icon: "page", layout: "list" }, { default: () => this.$t("field.pages.empty.single") }),
           ]),
           h("k-text-input", {
             ref: "ctaLabel",
             class: "k-block-type-lead-cta-label",
-            props: {
-              disabled: this.disabled,
-              placeholder: this.ctaLabelField.placeholder ?? "CTA label …",
-              value: this.content.ctaLabel,
-            },
-            on: { input: (value) => this.update({ ctaLabel: value }) },
+            disabled: this.disabled,
+            placeholder: this.ctaLabelField.placeholder ?? "CTA label …",
+            value: this.content.ctaLabel,
+            onInput: (value) => this.update({ ctaLabel: value }),
           }),
         ]),
       ]

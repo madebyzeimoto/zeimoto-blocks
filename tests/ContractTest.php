@@ -13,6 +13,7 @@ namespace Zeimoto\Blocks\Tests;
 
 use Kirby\Cms\Block;
 use Kirby\Cms\Blueprint;
+use Kirby\Form\Field;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 final class ContractTest extends PluginTestCase
@@ -55,7 +56,8 @@ final class ContractTest extends PluginTestCase
     self::assertSame(["inline" => false], $field["toolbar"]);
     self::assertSame(["bold", "italic", "link"], $field["marks"]);
     self::assertSame(["bulletList", "orderedList"], $field["nodes"]);
-    $default = new \Kirby\Form\Field("zeimoto-blocks-list", ["name" => "text", "model" => $app->site()]);
+    $class = Field::resolve("zeimoto-blocks-list");
+    $default = new $class(name: "text", model: $app->site());
     self::assertNull($default->toolbar());
   }
 

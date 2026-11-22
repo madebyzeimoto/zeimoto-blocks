@@ -6,9 +6,11 @@
 //
 // ==========================================================
 
+import { h } from "vue"
+
 export default {
   extends: "k-block-type-heading",
-  render(h) {
+  render() {
     return h(
       "div",
       {
@@ -18,32 +20,28 @@ export default {
           { "zeimoto-blocks-heading-fixed": this.textField.toolbar?.inline === false },
         ],
         style: this.$attrs.style,
-        attrs: { "data-level": this.content.level },
+        "data-level": this.content.level,
       },
       [
         h("k-writer-input", {
           ref: "input",
-          attrs: {
-            ...this.textField,
-            disabled: this.disabled,
-            inline: true,
-            keys: this.keys,
-            value: this.content.text,
-          },
-          on: { input: (value) => this.update({ text: value }) },
+          ...this.textField,
+          disabled: this.disabled,
+          inline: true,
+          keys: this.keys,
+          value: this.content.text,
+          onInput: (value) => this.update({ text: value }),
         }),
         this.levels.length > 1
           ? h("k-input", {
               ref: "level",
               class: "k-block-type-heading-level",
-              attrs: {
-                disabled: this.disabled,
-                empty: false,
-                options: this.levels,
-                value: this.content.level,
-                type: "select",
-              },
-              on: { input: (value) => this.update({ level: value }) },
+              disabled: this.disabled,
+              empty: false,
+              options: this.levels,
+              value: this.content.level,
+              type: "select",
+              onInput: (value) => this.update({ level: value }),
             })
           : null,
       ]
