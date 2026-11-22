@@ -8,8 +8,8 @@ Panel preview where needed, and frontend snippet.
 
 This plugin defines block types only. It does not decide where they appear.
 Host blueprints choose the allowed blocks through a field's `fieldsets`; for
-example, the kit's article field allows the prose blocks, and a layout field
-can allow a different set. A block renders with the same snippet wherever it
+example, the kit's Home Blocks tab allows its own set, and another blocks or
+layout field can allow a different one. A block renders with the same snippet wherever it
 is used, because Kirby resolves block HTML by type (`blocks/{type}`), not by
 the field that holds it.
 
@@ -17,9 +17,10 @@ the field that holds it.
 
 Everything this plugin owns is named `blocks`: the `zeimoto/blocks` package,
 the `zeimoto-blocks-*` Panel field and classes, the `fields/zeimoto-blocks/*`
-blueprints, the `zeimoto-blocks/*` snippets, and the `.mds-blocks-*` frontend
-classes. Containers belong to the host: the kit's article wrapper, for example,
-is `.mds-article`.
+blueprints, the `zeimoto-blocks/*` snippets, and the `.mds-blocks-{type}` frontend
+block roots. Containers belong to the host. The kit's generic container for
+blocks on any page is `.mds-blocks` with its `.mds-blocks-box`, so `box` is
+not available as a block type name.
 
 ## Installation
 
@@ -67,7 +68,8 @@ Local video uploads use its `audiovisual` blueprint. The host supplies both
 blueprints; video selection still queries `model.videos`, including existing
 videos with other templates.
 The quote and lead blocks' text fields use the inline rich-text field from `zeimoto-writer`.
-Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at `^0.1`.
+Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at
+`dev-main` while Kirby 6 is a release candidate.
 For manual installation, install and enable `zeimoto-image` and `zeimoto-writer`
 alongside this plugin. Uploaded-image rendering reports a clear error if its
 image helpers are absent.
@@ -157,8 +159,8 @@ point processing, or responsive file optimisation is performed.
 
 ## Unavailable external images
 
-If an external image fails to load, the public frontend replaces it with
-“This image is currently unavailable.” The selected ratio box, block width,
+If an external image fails to load, the public frontend replaces it with the
+`zeimoto-blocks-image-unavailable` message. The selected ratio box, block width,
 caption, and custom link remain. Its original-image lightbox link is removed,
 and the affected lightGallery group is refreshed.
 
@@ -199,9 +201,18 @@ Run `composer install` and `composer test` from this repository. Tests boot Kirb
 with disposable runtime directories and never load project secrets or send real
 mail. The host kit can also run this suite with `composer test:plugins`.
 
+## Frontend text
+
+Public interface text uses `t()` with plugin-registered English defaults:
+`zeimoto-blocks-lead-cta` (“Read more”), `zeimoto-blocks-quote-source`
+(“Source”), and `zeimoto-blocks-image-unavailable` (“This image is currently
+unavailable.”). The kit lets project language files override these keys.
+
 ## Lead editor
 
 The lead preview edits its text inline with the same Writer configuration as
 quote, forwarding `toolbar` (`inline: false` by default). The CTA label is an
 inline text input; the CTA page button opens Kirby's page picker dialog,
 limited to the blueprint's `query` (listed top-level pages by default).
+The frontend renders one `mds-blocks-lead` root carrying the shared `data-width`
+value, Narrow by default, like every other bundled block.

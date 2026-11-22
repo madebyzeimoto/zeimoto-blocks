@@ -102,16 +102,30 @@ final class ContractTest extends PluginTestCase
   {
     $this->app([], ["children" => [["slug" => "about", "num" => 1, "content" => ["title" => "About"]]]]);
     $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["text" => "Hello <strong>world</strong>", "cta" => "- about", "ctaLabel" => "Learn & more"]])], true);
-    self::assertStringContainsString('class="mds-lead-callout-text mds-lead">Hello <strong>world</strong></p>', $html);
+    self::assertStringContainsString('class="mds-blocks-lead" data-width="narrow"', $html);
+    self::assertStringContainsString('class="mds-blocks-lead-text mds-lead">Hello <strong>world</strong></p>', $html);
     self::assertStringContainsString('href="http://localhost/about"', $html);
     self::assertStringContainsString(">Learn &amp; more</a>", $html);
 
-    $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["cta" => "- about"]])], true);
+    $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["cta" => "- about", "width" => "base"]])], true);
+    self::assertStringContainsString('class="mds-blocks-lead" data-width="base"', $html);
     self::assertStringContainsString(">Read more</a>", $html);
-    self::assertStringNotContainsString("mds-lead-callout-text", $html);
+    self::assertStringNotContainsString("mds-blocks-lead-text", $html);
 
     $html = snippet("blocks/lead", ["block" => new Block(["type" => "lead", "content" => ["text" => "Only text"]])], true);
-    self::assertStringNotContainsString("mds-lead-callout-button", $html);
+    self::assertStringNotContainsString("mds-blocks-lead-button", $html);
+  }
+
+  public function testFrontendTextUsesNamespacedPluginTranslations(): void
+  {
+    $this->app();
+    self::assertSame("Read more", t("zeimoto-blocks-lead-cta"));
+    self::assertSame("Source", t("zeimoto-blocks-quote-source"));
+    self::assertSame("This image is currently unavailable.", t("zeimoto-blocks-image-unavailable"));
+
+    $html = snippet("blocks/quote", ["block" => new Block(["type" => "quote", "content" => ["text" => "Quoted", "source" => "https://example.com"]])], true);
+    self::assertStringContainsString('class="mds-blocks-quote-source"', $html);
+    self::assertStringContainsString(">Source</a>", $html);
   }
 
   public function testEmptyImageAndTextRemainQuiet(): void

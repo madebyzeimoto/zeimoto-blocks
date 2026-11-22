@@ -26,5 +26,5 @@ if ($image !== null) {
     "fetchpriority" => "auto",
     "data-external-image" => true,
   ]) . '>';
-  echo '<div class="mds-blocks-image-fallback" hidden><p class="mds-blocks-image-message">This image is currently unavailable.</p></div>';
+  echo '<div class="mds-blocks-image-fallback" hidden><p class="mds-blocks-image-message">' . html(t("zeimoto-blocks-image-unavailable")) . '</p></div>';
 }

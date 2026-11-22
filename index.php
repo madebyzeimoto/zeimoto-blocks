@@ -47,4 +47,11 @@ Kirby::plugin("zeimoto/blocks", [
     "blocks/text" => __DIR__ . "/snippets/blocks/text.php",
     "blocks/video" => __DIR__ . "/snippets/blocks/video.php",
   ],
+  "translations" => [
+    "en" => [
+      "zeimoto-blocks-image-unavailable" => "This image is currently unavailable.",
+      "zeimoto-blocks-lead-cta" => "Read more",
+      "zeimoto-blocks-quote-source" => "Source",
+    ],
+  ],
 ]);

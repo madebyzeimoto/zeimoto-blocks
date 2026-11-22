@@ -34,7 +34,7 @@ $width      = $block->width()->or("narrow")->value();
             <span class="mds-blocks-quote-role"><?= $role->html() ?></span><?php if ($sourceUrl !== null): ?>, <?php endif ?>
           <?php endif ?>
           <?php if ($sourceUrl !== null): ?>
-            <?= Html::a($sourceUrl, "Source", [
+            <?= Html::a($sourceUrl, html(t("zeimoto-blocks-quote-source")), [
               "class" => "mds-blocks-quote-source",
               "itemprop" => "citation",
               "target" => $isExternal ? "_blank" : null,

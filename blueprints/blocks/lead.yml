@@ -33,3 +33,6 @@ fields:
     label: CTA Label
     placeholder: CTA label …
     width: 3/6
+  width:
+    extends: fields/zeimoto-blocks/width
+    width: 3/6
