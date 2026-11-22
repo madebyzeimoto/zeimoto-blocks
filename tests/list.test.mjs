@@ -10,12 +10,19 @@ import { test } from "node:test"
 import assert from "node:assert/strict"
 import { readFileSync } from "node:fs"
 import vm from "node:vm"
-const { default: Vue } = await import(`data:text/javascript;base64,${readFileSync("kirby/panel/dist/js/vue.runtime.esm.min.js").toString("base64")}`)
 
-const context = {}
-vm.runInNewContext(readFileSync(new URL("../src/blocks/list.js", import.meta.url), "utf8").replace("export default", "component ="), context)
+const h = (tag, data = {}) => ({
+  tag,
+  data: { ...data, attrs: data, props: data, on: { input: data.onInput, click: data.onClick } },
+})
+const context = { h, resolveComponent: (name) => name }
+vm.runInNewContext(
+  readFileSync(new URL("../src/blocks/list.js", import.meta.url), "utf8")
+    .replace(/^import .*$/m, "")
+    .replace("export default", "component ="),
+  context
+)
 const list = context.component
-const h = (tag, data) => ({ tag, data })
 
 test("list forwards fixed toolbar settings without replacing native input handling", () => {
   const updates = []
@@ -48,21 +55,14 @@ test("list retains floating toolbar and both list types when settings are omitte
 })
 
 
-test("Vue preserves editor settings as attributes on Kirby's input wrapper", () => {
+test("list passes editor settings to Kirby's input wrapper", () => {
   const editor = {
     textField: { marks: ["bold"], nodes: ["bulletList", "orderedList"], toolbar: { inline: false } },
     content: { text: "<ul><li>Item</li></ul>" },
     keys: { "Mod-Enter": () => {} },
   }
-  const instance = new Vue({
-    components: { "k-input": { props: ["type", "disabled", "value"], render: (h) => h("div") } },
-    render(h) { return list.render.call(editor, h) },
-  })
-  const vnode = instance._render()
-  const input = new vnode.componentOptions.Ctor({ propsData: vnode.componentOptions.propsData, _parentVnode: vnode })
-  for (const key of ["marks", "nodes", "toolbar"]) assert.equal(input.$attrs[key], editor.textField[key])
-  assert.equal(input.$attrs.keys, editor.keys)
-  assert.equal(input.$props.type, "list")
-  input.$destroy()
-  instance.$destroy()
+  const input = list.render.call(editor, h)
+  for (const key of ["marks", "nodes", "toolbar"]) assert.equal(input.data.props[key], editor.textField[key])
+  assert.equal(input.data.props.keys, editor.keys)
+  assert.equal(input.data.props.type, "list")
 })

@@ -21,7 +21,7 @@ fields:
     when:
       location: web
   video:
-    type: files
+    type: filepicker
     label: field.blocks.video.name
     query: model.videos
     multiple: false
@@ -30,7 +30,7 @@ fields:
     when:
       location: kirby
   poster:
-    type: files
+    type: filepicker
     label: field.blocks.video.poster
     query: model.images
     multiple: false

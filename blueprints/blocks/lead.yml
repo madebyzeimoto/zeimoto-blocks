@@ -22,7 +22,7 @@ fields:
       - "|"
       - clear
   cta:
-    type: pages
+    type: pagepicker
     label: CTA
     translate: false
     multiple: false

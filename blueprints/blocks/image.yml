@@ -16,7 +16,7 @@ fields:
       kirby: "{{ t('field.blocks.image.location.internal') }}"
       web: "{{ t('field.blocks.image.location.external') }}"
   image:
-    type: files
+    type: filepicker
     label: field.blocks.image.name
     query: model.images
     multiple: false

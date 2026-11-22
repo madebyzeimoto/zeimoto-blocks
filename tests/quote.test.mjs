@@ -11,10 +11,19 @@ import assert from "node:assert/strict"
 import { readFileSync } from "node:fs"
 import vm from "node:vm"
 
-const context = {}
-vm.runInNewContext(readFileSync(new URL("../src/blocks/quote.js", import.meta.url), "utf8").replace("export default", "component ="), context)
+const h = (tag, data = {}, children = []) => ({
+  tag,
+  data: { ...data, attrs: data, props: data, on: { input: data.onInput, click: data.onClick } },
+  children,
+})
+const context = { h, resolveComponent: (name) => name }
+vm.runInNewContext(
+  readFileSync(new URL("../src/blocks/quote.js", import.meta.url), "utf8")
+    .replace(/^import .*$/m, "")
+    .replace("export default", "component ="),
+  context
+)
 const quote = context.component
-const h = (tag, data, children = []) => ({ tag, data, children })
 
 test("quote editor renders all fields and preserves input updates without compiling templates", () => {
   const updates = []

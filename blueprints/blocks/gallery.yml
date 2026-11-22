@@ -7,7 +7,7 @@ icon: dashboard
 preview: gallery
 fields:
   images:
-    type: files
+    type: filepicker
     label: field.blocks.gallery.images.label
     query: model.images
     multiple: true

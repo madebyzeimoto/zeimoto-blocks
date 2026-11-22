@@ -11,10 +11,19 @@ import assert from "node:assert/strict"
 import { readFileSync } from "node:fs"
 import vm from "node:vm"
 
-const context = {}
-vm.runInNewContext(readFileSync(new URL("../src/blocks/heading.js", import.meta.url), "utf8").replace("export default", "component ="), context)
+const h = (tag, data = {}, children = []) => ({
+  tag,
+  data: { ...data, attrs: data, props: data, on: { input: data.onInput, click: data.onClick } },
+  children,
+})
+const context = { h, resolveComponent: (name) => name }
+vm.runInNewContext(
+  readFileSync(new URL("../src/blocks/heading.js", import.meta.url), "utf8")
+    .replace(/^import .*$/m, "")
+    .replace("export default", "component ="),
+  context
+)
 const heading = context.component
-const h = (tag, data, children = []) => ({ tag, data, children })
 
 for (const inline of [false, true, undefined]) {
   test(`heading layout follows toolbar.inline=${inline}`, () => {
