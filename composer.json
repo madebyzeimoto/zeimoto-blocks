@@ -18,8 +18,8 @@
     "php": "^8.5",
     "getkirby/cms": "^6.0@RC",
     "getkirby/composer-installer": "^1.2.1",
-    "zeimoto/image": "dev-main",
-    "zeimoto/writer": "dev-main"
+    "zeimoto/image": "^0.2",
+    "zeimoto/writer": "^0.2"
   },
   "extra": {
     "installer-name": "zeimoto-blocks"
