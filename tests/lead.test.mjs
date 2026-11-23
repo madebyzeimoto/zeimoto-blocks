@@ -27,17 +27,15 @@ const lead = context.component
 
 test("lead editor renders text and CTA controls and preserves updates", () => {
   const updates = []
-  let opened = false
   const editor = {
     disabled: false,
-    $t: (key) => key,
     content: { text: "Lead", ctaLabel: "Go" },
     textField: { placeholder: "Text", marks: ["bold"], toolbar: { inline: false } },
     ctaLabelField: { placeholder: "Label" },
-    ctaPage: { text: "About" },
+    ctaIds: ["page://about"],
+    endpoints: { field: "pages/home/fields/blocks" },
+    field: () => ({ multiple: false }),
     update: (value) => updates.push(value),
-    pickCta: () => { opened = true },
-    removeCta(event) { event.stopPropagation(); this.update({ cta: [] }) },
   }
   const tree = lead.render.call(editor, h)
   assert.equal(tree.data.class[1]["zeimoto-blocks-lead-fixed"], true)
@@ -50,20 +48,25 @@ test("lead editor renders text and CTA controls and preserves updates", () => {
   assert.equal(label.data.props.value, "Go")
   label.data.on.input("Read")
   assert.equal(updates.at(-1).ctaLabel, "Read")
-  assert.equal(page.children[0].tag, "k-items")
-  assert.equal(page.children[0].data.props.items[0].text, "About")
-  page.data.on.click()
-  assert.equal(opened, true)
-  const stopped = []
-  page.children[0].data.props.items[0].buttons[0].click({ stopPropagation: () => stopped.push(true) })
-  assert.equal(stopped.length, 1)
+  assert.equal(page.tag, "k-zeimoto-lead-pagepicker")
+  assert.equal(page.data.props.value, editor.ctaIds)
+  assert.equal(page.data.props.multiple, false)
+  assert.equal(page.data.props.endpoints.field, "pages/home/fields/blocks/fieldsets/lead/fields/cta")
+  page.data.on.input(["page://contact"])
+  assert.deepEqual(updates.at(-1).cta, ["page://contact"])
+  page.data.on.input([])
   assert.deepEqual(updates.at(-1).cta, [])
 })
 
 test("lead retains the floating toolbar and prompts for a page when empty", () => {
-  const editor = { $t: (key) => key, content: {}, textField: {}, ctaLabelField: {}, ctaPage: null, update() {}, pickCta() {} }
+  const editor = { content: {}, textField: {}, ctaLabelField: {}, ctaIds: [], field: () => ({}), endpoints: { field: "blocks" } }
   const tree = lead.render.call(editor, h)
   assert.equal(tree.children[0].data.props.toolbar.inline, true)
   assert.equal(tree.data.class[1]["zeimoto-blocks-lead-fixed"], false)
-  assert.equal(tree.children[1].children[0].children[0].tag, "k-empty")
+  assert.deepEqual(tree.children[1].children[0].data.props.value, [])
+})
+
+test("lead accepts stored references and older item objects", () => {
+  const cta = ["page://current", { uuid: "page://legacy", id: "old" }, { id: "older" }]
+  assert.deepEqual(lead.computed.ctaIds.call({ content: { cta } }), ["page://current", "page://legacy", "older"])
 })

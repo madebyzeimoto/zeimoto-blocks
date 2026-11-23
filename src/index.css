@@ -155,20 +155,34 @@
 }
 
 .k-block-type-lead-cta-page {
-  cursor: pointer;
   min-width: 0;
 }
 
 .k-block-type-lead-cta-label {
   color: var(--color-text-dimmed);
   min-width: 0;
-  padding-inline: 0;
 }
 
-.k-block-type-lead-cta .k-block-type-lead-cta-page .k-item {
+.k-block-type-lead-cta-page .k-item-box,
+.k-block-type-lead-cta-page .k-empty,
+.k-block-type-lead-cta .k-block-type-lead-cta-label,
+.k-block-type-quote-grid :is(.k-block-type-quote-citation, .k-block-type-quote-role, .k-block-type-quote-source) {
   background: transparent;
+  block-size: var(--input-height);
   border: 1px dashed light-dark(var(--color-gray-400), var(--color-border));
+  border-radius: var(--rounded);
+  box-sizing: border-box;
   box-shadow: none;
+}
+
+.k-block-type-lead-cta-page .k-item[data-layout="list"] .k-item-box {
+  --item-height: calc(var(--input-height) - 2px);
+  min-block-size: 0;
+  overflow: hidden;
+}
+
+.k-block-type-lead-cta-page .k-item-content {
+  padding-block: 0;
 }
 
 @media (max-width: 40rem) {
@@ -179,27 +193,11 @@
 }
 
 .k-block-type-lead-cta-page .k-empty {
-  background: transparent;
   --theme-color-text: var(--input-color-placeholder);
   color: var(--input-color-placeholder);
-  box-sizing: border-box;
-  min-height: calc(var(--field-input-height) + 2px);
 }
 
-.k-block-type-lead-cta .k-block-type-lead-cta-label {
-  border: 1px dashed light-dark(var(--color-gray-400), var(--color-border));
-  border-radius: var(--rounded);
-  box-sizing: border-box;
-  min-height: calc(var(--field-input-height) + 2px);
-  padding-inline: var(--spacing-3);
-}
-
-.k-block-type-quote-grid .k-block-type-quote-citation,
-.k-block-type-quote-grid .k-block-type-quote-role,
-.k-block-type-quote-grid .k-block-type-quote-source {
-  border: 1px dashed light-dark(var(--color-gray-400), var(--color-border));
-  border-radius: var(--rounded);
-  box-sizing: border-box;
-  min-height: calc(var(--field-input-height) + 2px);
+.k-block-type-lead-cta .k-block-type-lead-cta-label,
+.k-block-type-quote-grid :is(.k-block-type-quote-citation, .k-block-type-quote-role, .k-block-type-quote-source) {
   padding-inline: var(--spacing-3);
 }

@@ -18,41 +18,20 @@ export default {
     ctaLabelField() {
       return this.field("ctaLabel", {})
     },
-    ctaPage() {
-      return (this.content.cta ?? [])[0] ?? null
+    ctaIds() {
+      return (this.content.cta ?? [])
+        .map((page) => (typeof page === "string" ? page : page?.uuid ?? page?.id))
+        .filter(Boolean)
     },
   },
   methods: {
-    removeCta(event) {
-      event?.stopPropagation()
-      this.update({ cta: [] })
-    },
-    pickCta() {
-      if (this.disabled) return
-      const field = this.field("cta", {})
-      this.$panel.dialog.open({
-        component: "k-pages-dialog",
-        props: {
-          endpoint: this.endpoints.field + "/fieldsets/" + (this.fieldset?.type ?? "lead") + "/fields/cta",
-          hasSearch: field.search ?? true,
-          max: 1,
-          multiple: false,
-          value: (this.content.cta ?? []).map((page) => page.id),
-        },
-        onSubmit: (pages) => {
-            this.update({ cta: pages.slice(0, 1) })
-            this.$panel.dialog.close()
-          },
-      })
-    },
     focus() {
       this.$refs.text?.focus()
     },
   },
   render() {
     const writerInput = resolveComponent("k-writer-input")
-    const items = resolveComponent("k-items")
-    const empty = resolveComponent("k-empty")
+    const pagepicker = resolveComponent("k-zeimoto-lead-pagepicker")
     const textInput = resolveComponent("k-text-input")
 
     return h(
@@ -74,22 +53,16 @@ export default {
           onInput: (value) => this.update({ text: value }),
         }),
         h("div", { class: "k-block-type-lead-cta" }, [
-          h("div", { ref: "cta", class: "k-block-type-lead-cta-page", onClick: () => this.pickCta() }, [
-            this.ctaPage
-              ? h(items, {
-                  items: [
-                      {
-                        ...this.ctaPage,
-                        link: false,
-                        buttons: this.disabled
-                          ? []
-                          : [{ icon: "remove", title: this.$t("remove"), click: (event) => this.removeCta(event) }],
-                      },
-                    ],
-                  layout: "list",
-                })
-              : h(empty, { icon: "page", layout: "list" }, { default: () => this.$t("field.pages.empty.single") }),
-          ]),
+          h(pagepicker, {
+            ...this.field("cta", {}),
+            disabled: this.disabled,
+            endpoints: {
+              ...this.endpoints,
+              field: this.endpoints.field + "/fieldsets/" + (this.fieldset?.type ?? "lead") + "/fields/cta",
+            },
+            value: this.ctaIds,
+            onInput: (value) => this.update({ cta: value }),
+          }),
           h(textInput, {
             ref: "ctaLabel",
             class: "k-block-type-lead-cta-label",
