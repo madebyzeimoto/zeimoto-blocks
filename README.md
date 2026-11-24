@@ -68,8 +68,8 @@ Local video uploads use its `audiovisual` blueprint. The host supplies both
 blueprints; video selection still queries `model.videos`, including existing
 videos with other templates.
 The quote and lead blocks' text fields use the inline rich-text field from `zeimoto-writer`.
-Composer metadata requires both `zeimoto/image` and `zeimoto/writer` at
-`dev-main` while Kirby 6 is a release candidate.
+Composer metadata requires compatible `0.*` releases of both `zeimoto/image`
+and `zeimoto/writer`.
 For manual installation, install and enable `zeimoto-image` and `zeimoto-writer`
 alongside this plugin. Uploaded-image rendering reports a clear error if its
 image helpers are absent.
