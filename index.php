@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 use Kirby\Form\Field\ListField;
 
+$flatten = require __DIR__ . "/languages/flatten-blueprint-translations.php";
+
 Kirby::plugin("zeimoto/blocks", [
   "fields" => [
     "zeimoto-blocks-list" => ListField::class,
@@ -52,6 +54,7 @@ Kirby::plugin("zeimoto/blocks", [
       "zeimoto-blocks-image-unavailable" => "This image is currently unavailable.",
       "zeimoto-blocks-lead-cta" => "Read more",
       "zeimoto-blocks-quote-source" => "Source",
+      ...$flatten(require __DIR__ . "/languages/blueprints/en.php"),
     ],
   ],
 ]);

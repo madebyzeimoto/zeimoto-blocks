@@ -47,7 +47,8 @@ fields:
       pascal: Pascal
       perl: Perl
       php: PHP
-      text: Plain Text
+      text:
+        "*": zeimoto-blocks.blocks.code.plain-text
       python: Python
       r: R
       ruby: Ruby

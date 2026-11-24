@@ -28,17 +28,21 @@ fields:
     width: 3/6
   role:
     type: text
-    label: Role
-    placeholder: Role …
+    label:
+      "*": zeimoto-blocks.blocks.quote.role
+    placeholder:
+      "*": zeimoto-blocks.blocks.quote.role-placeholder
     width: 3/6
   source:
     type: url
-    label: Source
+    label:
+      "*": zeimoto-blocks.blocks.quote.source
     placeholder: https://example.com
     width: 3/6
   isExternal:
     type: toggle
-    label: Source type
+    label:
+      "*": zeimoto-blocks.blocks.quote.source-type
     text:
       - "Internal Source"
       - "External Source"

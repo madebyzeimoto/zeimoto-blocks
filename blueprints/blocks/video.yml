@@ -93,7 +93,8 @@ fields:
       location: kirby
   mediaWidth:
     type: number
-    label: Video width
+    label:
+      "*": zeimoto-blocks.blocks.video.width
     min: 1
     default: 1600
     width: 1/2
@@ -101,7 +102,8 @@ fields:
       location: web
   mediaHeight:
     type: number
-    label: Video height
+    label:
+      "*": zeimoto-blocks.blocks.video.height
     min: 1
     default: 900
     width: 1/2

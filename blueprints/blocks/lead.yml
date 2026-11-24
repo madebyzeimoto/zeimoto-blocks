@@ -9,7 +9,8 @@ wysiwyg: true
 fields:
   text:
     type: zeimoto-writer
-    label: Text
+    label:
+      "*": zeimoto-blocks.blocks.lead.text
     placeholder: field.blocks.text.placeholder
     toolbar:
       inline: false
@@ -23,15 +24,18 @@ fields:
       - clear
   cta:
     type: pagepicker
-    label: CTA
+    label:
+      "*": zeimoto-blocks.blocks.lead.cta
     translate: false
     multiple: false
     query: site.children.listed
     width: 3/6
   ctaLabel:
     type: text
-    label: CTA Label
-    placeholder: CTA label …
+    label:
+      "*": zeimoto-blocks.blocks.lead.cta-label
+    placeholder:
+      "*": zeimoto-blocks.blocks.lead.cta-label-placeholder
     width: 3/6
   width:
     extends: fields/zeimoto-blocks/width

@@ -3,7 +3,8 @@
 # ==========================================================
 
 type: select
-label: Width
+label:
+  "*": zeimoto-blocks.fields.width
 default: narrow
 options:
   narrowest: Narrowest
