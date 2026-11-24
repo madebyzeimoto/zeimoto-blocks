@@ -128,6 +128,15 @@ final class ContractTest extends PluginTestCase
     self::assertStringContainsString(">Source</a>", $html);
   }
 
+  public function testPanelTextUsesNamespacedPluginTranslations(): void
+  {
+    $this->app();
+    self::assertSame("Lead", t("zeimoto-blocks.blocks.lead.name"));
+    self::assertSame("Auto", t("zeimoto-blocks.fields.ratio-placeholder"));
+    self::assertSame(["*" => "zeimoto-blocks.blocks.lead.name"], Blueprint::extend("blocks/lead")["name"]);
+    self::assertSame(["*" => "zeimoto-blocks.fields.ratio-placeholder"], Blueprint::extend("fields/zeimoto-blocks/ratio")["placeholder"]);
+  }
+
   public function testEmptyImageAndTextRemainQuiet(): void
   {
     $this->app();

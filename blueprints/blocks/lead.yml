@@ -2,7 +2,8 @@
 # Plugins :: zeimoto :: Blocks :: Blueprints :: Blocks :: Lead
 # ==========================================================
 
-name: Lead
+name:
+  "*": zeimoto-blocks.blocks.lead.name
 icon: megaphone
 preview: lead
 wysiwyg: true

@@ -13,6 +13,7 @@ return [
   "zeimoto-blocks" => [
     "fields" => [
       "width" => "Width",
+      "ratio-placeholder" => "Auto",
     ],
     "blocks" => [
       "quote" => [
@@ -22,6 +23,7 @@ return [
         "source-type" => "Source type",
       ],
       "lead" => [
+        "name" => "Lead",
         "text" => "Text",
         "cta" => "CTA",
         "cta-label" => "CTA Label",

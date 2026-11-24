@@ -4,7 +4,8 @@
 
 type: select
 label: field.blocks.image.ratio
-placeholder: Auto
+placeholder:
+  "*": zeimoto-blocks.fields.ratio-placeholder
 options:
   1/1: "1:1"
   16/9: "16:9"
